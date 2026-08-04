@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, useTheme } from "@mui/material";
 import { Dashboard, DesktopMac, QueryStats, Wallet, History, Settings } from '@mui/icons-material'
 import { sideBarIconsContainerStyles, sideBarStyles } from "../styles/sxStyles";
 const sideBarItems = [
@@ -9,8 +9,9 @@ const sideBarItems = [
     {id: "history", icon: <History />, path: "/history"},
 ]
 export default function SideBar() {
+    const theme = useTheme();
     return (
-        <Stack sx={ sideBarStyles } >
+        <Stack sx={ sideBarStyles(theme) } >
             <Stack>
                 {/* PlaceHolder */}
                 8

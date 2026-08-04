@@ -1,23 +1,27 @@
+import type { Theme } from "@mui/material/styles"
+
 /* App */
 export const mainPageStyles = {
     height: "100vh",
     display: "flex",
-    backgroundColor: "#0d0d0d",
-    color: "white",
+}
+
+export const numberStyles = {
+    fontFamily: '"JetBrains Mono", monospace',
 }
 /* === App ===  */
 
 /* SideBar */
-export const sideBarStyles = {
+export const sideBarStyles = (theme: Theme) => ({
     height: "100%",
     width: "70px",
     justifyContent: "space-between",
     alignItems: "center",
     padding: "20px 16px",
     fontSize: "22px",
-    backgroundColor: "#171717",
-    borderRight: "0.5px solid #222222"
-}
+    backgroundColor: theme.palette.background.paper,
+    borderRight: `0.5px solid ${theme.palette.divider}`,
+})
 
 export const sideBarIconsContainerStyles = {
     flex: '1', 
@@ -27,24 +31,24 @@ export const sideBarIconsContainerStyles = {
 /* === SideBar === */
 
 /* TopBar */
-export const topBarStyles = {
-    backgroundColor: "#171717", 
-    flexDirection: "row", 
+export const topBarStyles = (theme: Theme) => ({
+    backgroundColor: theme.palette.background.paper,
+    flexDirection: "row" as const,
     justifyContent: "space-between",
     alignItems: "center",
     padding: "0 24px",
     height: "72px",
-    borderRadius: "12px",
-}
+    borderRadius: `${theme.shape.borderRadius}px`,
+})
 
-export const searchBarStyles = {
+export const searchBarStyles = (theme: Theme) => ({
     p: '2px 4px', 
     display: 'flex', 
     alignItems: 'center', 
     width: 400, 
-    backgroundColor: "#0d0d0d", 
+    backgroundColor: theme.palette.background.default,
     borderRadius: "100px",
-}
+})
 
 export const topBarIconsContainerStyles = {
     flexDirection: "row",

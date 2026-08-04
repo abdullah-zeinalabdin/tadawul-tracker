@@ -1,13 +1,15 @@
 import { AccountCircle, Home, Notifications } from "@mui/icons-material";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useTheme } from "@mui/material";
 import SearchBar from "./SearchBar";
 import { topBarIconsContainerStyles, topBarStyles, topBarIconsStyles } from "../styles/sxStyles";
+
 export default function TopBar() {
+    const theme = useTheme();
     return (
-        <Stack sx={ topBarStyles }>
+        <Stack sx={ topBarStyles(theme) }>
             <Stack sx={ topBarIconsContainerStyles }>
                 <Home sx={ topBarIconsStyles } />
-                <Typography sx={{ marginBottom: "-2px" }}>Dashboard</Typography>
+                <Typography variant="body1" sx={{ marginBottom: "-2px" }}>Dashboard</Typography>
             </Stack>
 
             <Stack>
