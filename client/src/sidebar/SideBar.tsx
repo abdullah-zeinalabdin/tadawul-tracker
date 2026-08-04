@@ -1,6 +1,6 @@
 import { Box, Stack } from "@mui/material";
 import { Dashboard, DesktopMac, QueryStats, Wallet, History, Settings } from '@mui/icons-material'
-import { SideBarIconsContainerStyles, sideBarStyles } from "../styles/sxStyles";
+import { sideBarIconsContainerStyles, sideBarStyles } from "../styles/sxStyles";
 const sideBarItems = [
     {id: "dashboard", icon: <Dashboard />, path: "/dashboard"},
     {id: "desktop", icon: <DesktopMac />, path: "/desktop"},
@@ -10,12 +10,12 @@ const sideBarItems = [
 ]
 export default function SideBar() {
     return (
-        <Stack sx={sideBarStyles} >
+        <Stack sx={ sideBarStyles } >
             <Stack>
                 {/* PlaceHolder */}
                 8
             </Stack>
-            <Stack spacing={5} sx={SideBarIconsContainerStyles}>
+            <Stack spacing={5} sx={ sideBarIconsContainerStyles }>
                 {
                 sideBarItems.map((item) => (<Box key={item.id}>{item.icon}</Box >))
                 }
