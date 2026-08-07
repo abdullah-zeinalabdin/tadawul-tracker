@@ -30,7 +30,7 @@ const theme = createTheme({
             fontWeight: 600,
         },
         h3: {
-            fontSize: '18px',
+            fontSize: '16px',
             fontWeight: 500,
         },
         body1: {
@@ -43,7 +43,7 @@ const theme = createTheme({
             color: '#6b7a9a',
         },
         caption: {
-            fontSize: '11px',
+            fontSize: '12px',
             fontWeight: 400,
             color: '#6b7a9a',
         },

@@ -1,4 +1,4 @@
-import type { Theme } from "@mui/material/styles"
+import { alpha, type Theme } from "@mui/material/styles"
 
 /* App */
 export const mainPageStyles = {
@@ -64,3 +64,26 @@ export const topBarIconsStyles = {
     verticalAlign: 'middle'
 }
 /* === TopBar === */
+
+/* Widgets */
+export const widgetsBaseStyles = (theme: Theme) => ({
+    backgroundColor: theme.palette.background.paper,
+    padding: "25px",
+    borderRadius: `${theme.shape.borderRadius}px`,
+    height: "500px",
+})
+
+export const profitIndicator = (theme: Theme) => ({
+    backgroundColor:  alpha(theme.palette.success.main, 0.4),
+    padding: "2px 10px",
+    borderRadius: "6px",
+    color: "white",
+})
+
+export const allocationRowStyles = {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: "20px",
+}
+/* === Widgets === */

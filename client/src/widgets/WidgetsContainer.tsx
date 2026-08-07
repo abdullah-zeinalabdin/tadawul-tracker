@@ -1,12 +1,11 @@
 import { Grid, Stack } from "@mui/material";
+import PortfolioValueCard from "./portfolioValueCard/PortfolioValueCard";
 
 export default function WidgetsContainer() {
     return(
         <Grid container spacing={3}>
             <Grid size={4}>
-                <Stack>
-
-                </Stack>
+                <PortfolioValueCard />
             </Grid>
             <Grid size={8}>
                 <Stack>
