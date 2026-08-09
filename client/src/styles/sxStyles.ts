@@ -4,6 +4,7 @@ import { alpha, type Theme } from "@mui/material/styles"
 export const mainPageStyles = {
     height: "100vh",
     display: "flex",
+    overflow: "hidden",
 }
 
 export const numberStyles = {

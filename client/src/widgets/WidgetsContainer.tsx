@@ -1,5 +1,6 @@
 import { Grid, Stack } from "@mui/material";
 import PortfolioValueCard from "./portfolioValueCard/PortfolioValueCard";
+import AssestsPerformanceTable from "./assetsPerformance/AssetsPerformanceTable";
 
 export default function WidgetsContainer() {
     return(
@@ -14,7 +15,7 @@ export default function WidgetsContainer() {
             </Grid>
             <Grid size={6}>
                 <Stack>
-
+                    <AssestsPerformanceTable />
                 </Stack>
             </Grid>
             <Grid size={6}>
