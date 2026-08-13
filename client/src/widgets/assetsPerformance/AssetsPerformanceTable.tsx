@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material";
 export default function AssestsPerformanceTable() {
     const theme = useTheme();
     return (
-        <Stack sx={[widgetsBaseStyles(theme), { height: "400px" }]} spacing={4}>
+        <Stack sx={[widgetsBaseStyles(theme), { height: "430px" }]} spacing={4}>
             <Typography variant="h2">Assets Performance</Typography>
             <AssetsTable />
         </Stack>

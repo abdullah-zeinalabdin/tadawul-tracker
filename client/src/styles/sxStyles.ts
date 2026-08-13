@@ -74,11 +74,12 @@ export const widgetsBaseStyles = (theme: Theme) => ({
     height: "500px",
 })
 
-export const profitIndicator = (theme: Theme) => ({
-    backgroundColor:  alpha(theme.palette.success.main, 0.4),
+export const pillIndicator = (theme: Theme, isPositive: boolean) => ({
+    backgroundColor:  alpha(isPositive ? theme.palette.success.main : theme.palette.error.main, 0.4),
     padding: "2px 10px",
     borderRadius: "6px",
     color: "white",
+    display: "inline-block",
 })
 
 export const allocationRowStyles = {

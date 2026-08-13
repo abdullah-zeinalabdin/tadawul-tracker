@@ -3,6 +3,7 @@ export interface AssetsPerformanceItem {
     name: string,
     weight: number,
     gain: number,
+    contribution: number,
 }
 
 export interface AssetsPerformanceProps {

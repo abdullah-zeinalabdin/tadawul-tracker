@@ -50,7 +50,26 @@ const theme = createTheme({
     },
     shape: {
         borderRadius: 12,
-    }
+    },
+    components: {
+    MuiTableCell: {
+        styleOverrides: {
+            root: {
+                borderColor: '#222222',
+                color: '#e2e8f0',
+                fontSize: '13px',
+                padding: '20px 12px',
+            },
+            head: {
+                color: '#6b7a9a',
+                fontSize: '11px',
+                fontWeight: 500,
+                textTransform: 'uppercase',
+                letterSpacing: '0.02em',
+            },
+        },
+    },
+},
 });
 
 export default theme;
