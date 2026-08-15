@@ -88,4 +88,11 @@ export const allocationRowStyles = {
     justifyContent: "space-between",
     marginTop: "20px",
 }
+
+export const todaysPerformanceCardStyles = (theme: Theme) =>  ({
+    padding: "20px", 
+    borderRadius: "8px",
+    minWidth: "200px",
+    backgroundColor: theme.palette.background.default,
+})
 /* === Widgets === */
