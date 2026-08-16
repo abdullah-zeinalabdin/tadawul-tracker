@@ -1,9 +1,12 @@
-import { AccountCircle, Home, Notifications } from "@mui/icons-material";
-import { Stack, Typography, useTheme } from "@mui/material";
+import { AccountCircle, Add, Home } from "@mui/icons-material";
+import { Button, Stack, Typography, useTheme } from "@mui/material";
 import SearchBar from "./SearchBar";
-import { topBarIconsContainerStyles, topBarStyles, topBarIconsStyles } from "../styles/sxStyles";
+import { topBarIconsContainerStyles, topBarStyles, topBarIconsStyles, topBarButtonStyles } from "../styles/sxStyles";
+import DialogTransaction from "./dialog/DialogTransaction";
+import { useState } from "react";
 
 export default function TopBar() {
+    const [open, setOpen] = useState(false);
     const theme = useTheme();
     return (
         <Stack sx={ topBarStyles(theme) }>
@@ -17,8 +20,11 @@ export default function TopBar() {
             </Stack>
 
             <Stack sx={ topBarIconsContainerStyles }>
-                <Notifications sx={ topBarIconsStyles } />
+                <Button variant="contained" startIcon={<Add />} onClick={() => {setOpen(true)}} sx={topBarButtonStyles}>
+                    Add Transaction
+                </Button>
                 <AccountCircle sx={{ fontSize: "50px" }} />
+                <DialogTransaction open={open} setOpen={setOpen}/>
             </Stack>
         </Stack>
     )

@@ -7,6 +7,9 @@ const theme = createTheme({
             default: "#0d0d0d",
             paper: "#171717",
         },
+        primary: {
+            main: "#378ADD",
+        },
         success: {
             main: '#22C55E',
         },

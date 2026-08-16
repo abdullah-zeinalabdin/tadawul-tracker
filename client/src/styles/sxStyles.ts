@@ -64,6 +64,54 @@ export const topBarIconsStyles = {
     padding: 0,
     verticalAlign: 'middle'
 }
+
+export const topBarButtonStyles ={
+    color: "#fff",
+    textTransform: "none",
+    borderRadius: "8px",
+    paddingX: "16px",
+}
+
+export const dialogToggleBuySellStyles = (activeBg: string, activeHoverBg: string) => ({
+    borderRadius: '999px',
+    p: 0.5,
+    bgcolor: '#171717',
+    gap: 0.5,
+    '& .MuiToggleButtonGroup-grouped': {
+        border: 0,
+        borderRadius: '999px !important',
+        px: 3,
+        py: 1,
+        textTransform: 'none',
+        fontWeight: 600,
+        minWidth: "50%",
+        color: '#6b7a9a',
+        '&.Mui-selected': {
+            bgcolor: activeBg,
+            color: '#fff',
+            '&:hover': {
+                bgcolor: activeHoverBg,
+            },
+        },
+        '&:hover': {
+            bgcolor: '#222222',
+        },
+    },
+})
+
+export const hideNumberFieldSpinner = {
+    '& input[type=number]': {
+        MozAppearance: 'textfield',
+    },
+    '& input[type=number]::-webkit-outer-spin-button': {
+        WebkitAppearance: 'none',
+        margin: 0,
+    },
+    '& input[type=number]::-webkit-inner-spin-button': {
+        WebkitAppearance: 'none',
+        margin: 0,
+    },
+}
 /* === TopBar === */
 
 /* Widgets */
