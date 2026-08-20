@@ -5,17 +5,13 @@ import Box from '@mui/material/Box'
 import { dialogToggleBuySellStyles } from '../../styles/sxStyles';
 import { Typography } from '@mui/material';
 
-type Side = 'buy' | 'sell';
+type Side = 'buy' | 'sell' | null;
+interface Props {
+    side: Side,
+    toggleHandler(e: React.MouseEvent<HTMLElement>, newValue: Side) : void,
+}
 
-export default function BuySellToggle() {
-    const [side, setSide] = React.useState<Side>('buy')
-
-    const handleChange = (_event: React.MouseEvent<HTMLElement>, newSide: Side | null, ) => {
-        if (newSide !== null) {
-            setSide(newSide)
-        }
-    }
-
+export default function BuySellToggle( { side, toggleHandler }: Props) {
     const isBuy = side === 'buy'
     const activeBg = isBuy ? '#22C55E' : '#EF4444'
     const activeHoverBg = isBuy ? '#1ea350' : '#d93c3c'
@@ -26,7 +22,7 @@ export default function BuySellToggle() {
             <ToggleButtonGroup
                 value={side}
                 exclusive
-                onChange={handleChange}
+                onChange={toggleHandler}
                 aria-label="Buy or sell"
                 sx={ dialogToggleBuySellStyles(activeBg, activeHoverBg) }
             >
