@@ -28,7 +28,7 @@ export default function DialogTransaction({ open, setOpen }: Props) {
         date: null
     });
 
-    const toggleHandler = (e: React.MouseEvent<HTMLElement>, newValue: "buy" | "sell" | null) => {
+    const toggleHandler = (_e: React.MouseEvent<HTMLElement>, newValue: "buy" | "sell" | null) => {
         if (newValue !== null) {
             setTransactionDetails({ ...transactionDetails, side: newValue })
         }
