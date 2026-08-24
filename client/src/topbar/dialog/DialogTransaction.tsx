@@ -6,6 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { useState } from "react";
 import type { Dayjs } from "dayjs";
+import { useTransactions } from "../../context/useTransactions";
 interface TransactionForm {
     side: "buy" | "sell",
     ticker: string,
@@ -20,14 +21,15 @@ interface Props {
 }
 
 export default function DialogTransaction({ open, setOpen }: Props) {
-    const [transactionDetails, setTransactionDetails] = useState<TransactionForm>({
+    const emptyForm: TransactionForm = {
         side: "buy",
         ticker: "",
         numberOfShares: "",
         PPS: "",
         date: null
-    });
-
+    }
+    const [transactionDetails, setTransactionDetails] = useState<TransactionForm>(emptyForm);
+    const { addTransaction } = useTransactions();
     const toggleHandler = (_e: React.MouseEvent<HTMLElement>, newValue: "buy" | "sell" | null) => {
         if (newValue !== null) {
             setTransactionDetails({ ...transactionDetails, side: newValue })
@@ -35,6 +37,24 @@ export default function DialogTransaction({ open, setOpen }: Props) {
     }
 
     const overallPrice = Number(transactionDetails.numberOfShares) * Number(transactionDetails.PPS) || 0;
+    const handleSave = () => {
+        if(transactionDetails.ticker && Number.isFinite(transactionDetails.numberOfShares) && Number.isFinite(transactionDetails.PPS) && transactionDetails.date) {
+            addTransaction({
+                id: crypto.randomUUID(),
+                side: transactionDetails.side,
+                ticker: transactionDetails.ticker,
+                numberOfShares: Number(transactionDetails.numberOfShares),
+                PPS: Number(transactionDetails.PPS),
+                date: transactionDetails.date?.toISOString() ?? new Date().toISOString(),
+            });
+            setTransactionDetails(emptyForm)
+        }
+        setOpen(false);
+    }
+    const handleCancel = () => {
+        setTransactionDetails(emptyForm)
+        setOpen(false);
+    }
     return (
         <Dialog open={open} onClose={() => setOpen(false)} fullWidth={true}>
             <DialogTitle >Add Transaction</DialogTitle>
@@ -97,8 +117,8 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                 </Stack>
             </DialogContent>
             <DialogActions>
-                <Button onClick={() => setOpen(false)}>Cancel</Button>
-                <Button variant="contained">Save</Button>
+                <Button onClick={handleCancel}>Cancel</Button>
+                <Button variant="contained" onClick={handleSave}>Save</Button>
             </DialogActions>
         </Dialog>
     )
