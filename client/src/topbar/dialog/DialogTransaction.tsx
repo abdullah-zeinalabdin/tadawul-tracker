@@ -7,6 +7,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { useState } from "react";
 import type { Dayjs } from "dayjs";
 import { useTransactions } from "../../context/useTransactions";
+import { usePositions } from "../../context/usePositions";
 interface TransactionForm {
     side: "buy" | "sell",
     ticker: string,
@@ -31,6 +32,7 @@ const emptyForm: TransactionForm = {
 export default function DialogTransaction({ open, setOpen }: Props) {
     const [transactionDetails, setTransactionDetails] = useState<TransactionForm>(emptyForm);
     const { addTransaction } = useTransactions();
+    const positions = usePositions();
     const toggleHandler = (_e: React.MouseEvent<HTMLElement>, newValue: "buy" | "sell" | null) => {
         if (newValue !== null) {
             setTransactionDetails({ ...transactionDetails, side: newValue })
@@ -39,7 +41,19 @@ export default function DialogTransaction({ open, setOpen }: Props) {
 
     const overallPrice = Number(transactionDetails.numberOfShares) * Number(transactionDetails.PPS) || 0;
     const handleSave = () => {
-        if(transactionDetails.ticker && Number.isFinite(transactionDetails.numberOfShares) && Number.isFinite(transactionDetails.PPS) && transactionDetails.date) {
+        const selectedStock = positions.find(position => position.ticker === transactionDetails.ticker);
+        
+        const fieldsFilled = 
+            transactionDetails.ticker &&
+            Number.isFinite(transactionDetails.numberOfShares) &&
+            Number.isFinite(transactionDetails.PPS) && 
+            transactionDetails.date;
+
+        const hasEnoughShares = 
+            transactionDetails.side === "buy" ||
+            (selectedStock !== undefined && selectedStock.shares >= Number(transactionDetails.numberOfShares));
+        
+        if (fieldsFilled && hasEnoughShares) {
             addTransaction({
                 id: crypto.randomUUID(),
                 side: transactionDetails.side,
@@ -48,7 +62,7 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                 PPS: Number(transactionDetails.PPS),
                 date: transactionDetails.date?.toISOString() ?? new Date().toISOString(),
             });
-            setTransactionDetails(emptyForm)
+            setTransactionDetails(emptyForm);
         }
         setOpen(false);
     }
