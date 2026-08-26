@@ -20,14 +20,15 @@ interface Props {
     setOpen: (value: boolean) => void
 }
 
+const emptyForm: TransactionForm = {
+    side: "buy",
+    ticker: "",
+    numberOfShares: "",
+    PPS: "",
+    date: null
+}
+
 export default function DialogTransaction({ open, setOpen }: Props) {
-    const emptyForm: TransactionForm = {
-        side: "buy",
-        ticker: "",
-        numberOfShares: "",
-        PPS: "",
-        date: null
-    }
     const [transactionDetails, setTransactionDetails] = useState<TransactionForm>(emptyForm);
     const { addTransaction } = useTransactions();
     const toggleHandler = (_e: React.MouseEvent<HTMLElement>, newValue: "buy" | "sell" | null) => {
