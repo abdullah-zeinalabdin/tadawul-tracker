@@ -5,17 +5,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Stack from '@mui/material/Stack';
-import type { AssetsPerformanceItem } from './types';
+import type { AssetsPerformanceProps } from './types';
 import { numberStyles, pillIndicator } from '../../styles/sxStyles';
-import { Typography, useTheme } from '@mui/material'
-const rows: AssetsPerformanceItem[] = [
-    { code: "2280", name: "Almarai", weight: 21, gain: 6.5, contribution: 560 },
-    { code: "7202", name: "Solutions STC", weight: 8, gain: 2.1, contribution: 258 },
-    { code: "4013", name: "Al Habib", weight: 8, gain: 1.8, contribution: 632, },
-    { code: "4264", name: "Flynas", weight: 10, gain: - 0.5, contribution: 87},
-];
+import { Typography, useTheme } from '@mui/material';
 
-export default function AssetsTable() {
+export default function AssetsTable({ rows }: AssetsPerformanceProps ) {
     const theme = useTheme();
     return (
         <Stack>

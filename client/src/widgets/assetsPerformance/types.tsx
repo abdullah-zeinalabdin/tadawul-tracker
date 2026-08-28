@@ -7,5 +7,5 @@ export interface AssetsPerformanceItem {
 }
 
 export interface AssetsPerformanceProps {
-    assetsPerformance: AssetsPerformanceItem[],
+    rows: AssetsPerformanceItem[],
 }
