@@ -7,6 +7,7 @@ import { usePositions } from "../context/usePositions";
 import { useMemo } from "react";
 import { usePrices } from "../context/usePrices";
 import type { AssetsPerformanceItem } from "./assetsPerformance/types";
+import type { DailyPerformanceItem } from "./dailyPerformance/types";
 export default function WidgetsContainer() {
     const positions = usePositions();
     const tickers = useMemo(() => positions.map((p) => p.ticker), [positions]);
@@ -29,6 +30,18 @@ export default function WidgetsContainer() {
             contribution: marketValue,
         }
     })
+
+    const dailyPerformance: DailyPerformanceItem[] = positions.map((position) => {
+        const priceData = prices[position.ticker];
+        const currentPrice = priceData?.price ?? position.avgCost;
+
+        return {
+            ticker: position.ticker,
+            todayPrice: currentPrice,
+            priceChangePercent: Number(priceData?.change_percent ?? 0),
+            change: Number(priceData?.change ?? 0),
+        }
+    });
     return(
         <Grid container spacing={3}>
             <Grid size={4}>
@@ -46,7 +59,7 @@ export default function WidgetsContainer() {
             </Grid>
             <Grid size={6}>
                 <Stack>
-                    <DailyPerformance />
+                    <DailyPerformance dailyPerformance={dailyPerformance}/>
                 </Stack>
             </Grid>
         </Grid>

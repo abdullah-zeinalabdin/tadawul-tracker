@@ -1,7 +1,8 @@
 export interface DailyPerformanceItem {
     ticker: string,
-    priceChange: number,
-    percentage: number,
+    todayPrice: number,
+    priceChangePercent: number,
+    change: number,
 }
 
 export interface DailyPerformanceProps {
