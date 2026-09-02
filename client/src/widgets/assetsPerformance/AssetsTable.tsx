@@ -33,10 +33,10 @@ export default function AssetsTable({ rows }: AssetsPerformanceProps ) {
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
-                                <TableCell sx={numberStyles}>{row.weight}%</TableCell>
+                                <TableCell sx={numberStyles}>{(row.weight).toFixed(2)}%</TableCell>
                                 <TableCell>
                                     <Typography align="center" sx={ [numberStyles, pillIndicator(theme, row.gain >= 0)] }>
-                                        { row.gain >= 0 ? "+" : "" }{ row.gain }%
+                                        { row.gain >= 0 ? "+" : "" }{ (row.gain).toFixed(2) }%
                                     </Typography>
                                 </TableCell>
                                 <TableCell  sx={numberStyles}>{row.contribution} SAR</TableCell>
