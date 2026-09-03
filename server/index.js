@@ -1,6 +1,20 @@
 import express from "express";
 import 'dotenv/config'
 import cors from "cors";
+import mongoose from "mongoose";
+
+async function startServer() {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI);
+        app.listen(4000, () => {
+            console.log("Listening on Port 4000");
+        });
+    }
+
+    catch(error) {
+        console.log(`Error While trying to connect to the DB, Status: ${error}`)
+    }
+}
 
 const app = express();
 
@@ -26,6 +40,5 @@ app.get("/quote/:ticker", async(req, res) => {
     }
 });
 
-app.listen(4000, () => {
-    console.log("Listening on Port 4000");
-});
+startServer();
+
