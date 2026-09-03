@@ -2,6 +2,7 @@ import express from "express";
 import 'dotenv/config'
 import cors from "cors";
 import mongoose from "mongoose";
+import { Transaction } from "./models/Transaction.js";
 
 async function startServer() {
     try {
@@ -13,12 +14,14 @@ async function startServer() {
 
     catch(error) {
         console.log(`Error While trying to connect to the DB, Status: ${error}`)
+        process.exit(1);
     }
 }
 
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 app.get("/quote/:ticker", async(req, res) => {
     const { ticker } = req.params;
@@ -39,6 +42,19 @@ app.get("/quote/:ticker", async(req, res) => {
         res.status(400).json({error: error.message})
     }
 });
+
+app.post("/transactions", async(req,res) => {
+    const { side, ticker, numberOfShares, PPS, date } = req.body;
+
+    try {
+        const transaction = await Transaction.create({ side, ticker, numberOfShares, PPS, date });
+        res.status(201).json(transaction);
+    }
+
+    catch(error) {
+        res.status(400).json({error: error.message});
+    }
+})
 
 startServer();
 
