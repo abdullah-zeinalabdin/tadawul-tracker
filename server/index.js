@@ -2,7 +2,8 @@ import express from "express";
 import 'dotenv/config'
 import cors from "cors";
 import mongoose from "mongoose";
-import { Transaction } from "./models/Transaction.js";
+import { transactionRouter } from "./routes/transaction.js";
+import { quoteRouter } from "./routes/quote.js";
 
 async function startServer() {
     try {
@@ -22,39 +23,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-app.get("/quote/:ticker", async(req, res) => {
-    const { ticker } = req.params;
-    try {
-        const response = await fetch(`https://api.sahmk.sa/api/v1/quote/${ticker}/`,
-            { headers: { "X-API-Key": process.env.SHMK_API_KEY } }
-        )
-
-        if (!response.ok) {
-            throw new Error(`Error! Status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-
-        res.status(200).json(data);
-    }
-    catch(error) {
-        res.status(400).json({error: error.message})
-    }
-});
-
-app.post("/transactions", async(req,res) => {
-    const { side, ticker, numberOfShares, PPS, date } = req.body;
-
-    try {
-        const transaction = await Transaction.create({ side, ticker, numberOfShares, PPS, date });
-        res.status(201).json(transaction);
-    }
-
-    catch(error) {
-        res.status(400).json({error: error.message});
-    }
-})
+app.use("/transactions", transactionRouter)
+app.use("/quote", quoteRouter)
 
 startServer();
-
