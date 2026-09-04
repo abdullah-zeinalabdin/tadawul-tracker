@@ -4,6 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import { transactionRouter } from "./routes/transaction.js";
 import { quoteRouter } from "./routes/quote.js";
+import { userRouter } from "./routes/user.js";
 
 async function startServer() {
     try {
@@ -23,7 +24,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/transactions", transactionRouter)
-app.use("/quote", quoteRouter)
+app.use("/transactions", transactionRouter);
+app.use("/quote", quoteRouter);
+app.use("/user", userRouter)
 
 startServer();
