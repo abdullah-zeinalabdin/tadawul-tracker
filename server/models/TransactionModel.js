@@ -3,6 +3,11 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+    },
     side: {
         type: String,
         enum: ["buy", "sell"],
