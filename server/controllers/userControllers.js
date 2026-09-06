@@ -1,6 +1,11 @@
 import { User } from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import validator from "validator";
+import jwt from "jsonwebtoken";
+
+const tokenGen = (userId) => {
+    return jwt.sign({userId}, process.env.JWT_SECRET, { expiresIn: "7d"});
+}
 
 export const registerUser = async(req, res) => {
     const { email, password } = req.body;
@@ -56,7 +61,9 @@ export const loginUser = async(req, res) => {
 
         const isMatch = await bcrypt.compare(password, user.passwordHash);
 
-        isMatch ? res.status(200).json({message: "Login successfully"}) : res.status(401).json({error: "Combination is wrong, Try again"});
+        isMatch ? 
+        res.status(200).json({message: "Login successfully", token: tokenGen(user._id)}) : 
+        res.status(401).json({error: "Combination is wrong, Try again"});
     }
     catch(error) {
         res.status(400).json({error: error.message});
