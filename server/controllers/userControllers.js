@@ -61,9 +61,19 @@ export const loginUser = async(req, res) => {
 
         const isMatch = await bcrypt.compare(password, user.passwordHash);
 
-        isMatch ? 
-        res.status(200).json({message: "Login successfully", token: tokenGen(user._id)}) : 
-        res.status(401).json({error: "Combination is wrong, Try again"});
+        if(isMatch) {
+            const token = tokenGen(user._id);
+            res.cookie("token", token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: "strict",
+                maxAge: 7 * 24 * 60 * 60 * 1000,
+            });
+            res.status(200).json({message: "Login Successfully"});
+        }
+        else {
+            res.status(401).json({error: "Combination is wrong, Try again"});
+        }
     }
     catch(error) {
         res.status(400).json({error: error.message});
