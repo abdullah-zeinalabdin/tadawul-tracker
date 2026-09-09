@@ -55,7 +55,6 @@ export default function DialogTransaction({ open, setOpen }: Props) {
         
         if (fieldsFilled && hasEnoughShares) {
             addTransaction({
-                id: crypto.randomUUID(),
                 side: transactionDetails.side,
                 ticker: transactionDetails.ticker,
                 numberOfShares: Number(transactionDetails.numberOfShares),

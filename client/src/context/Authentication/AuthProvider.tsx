@@ -12,6 +12,7 @@ export interface LoginProps {
 
 export const AuthProvider = ( { children }: AuthProviderProps) => {
     const [userData, setUserData] = useState<{ email: string } | null>(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchAuth = async() => {
@@ -28,6 +29,9 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
             }
             catch(error) {
                 console.error('Fetch operation failed:', error);
+            }
+            finally {
+                setLoading(false);
             }
         };
         fetchAuth();
@@ -67,7 +71,7 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
         }
     }
     return (
-        <AuthContext.Provider value={{ userData, login, logout }}>
+        <AuthContext.Provider value={{ userData, login, logout, loading }}>
             { children }
         </AuthContext.Provider>
     )

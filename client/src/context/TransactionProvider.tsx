@@ -9,9 +9,32 @@ interface TransactionProviderProps {
 
 export const TransactionProvider = ({ children }: TransactionProviderProps) => {
     const { userData } = useAuth();
+
     const [transactions, setTransactions] = useState<Transaction[]>([]);
-    const addTransaction = (t: Transaction) => {
-        setTransactions(prev => [...prev, t])
+
+    const addTransaction = async(t: Transaction) => {
+        try {
+            const response = await fetch("http://localhost:4000/transactions", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(t), 
+            });
+
+            const data = await response.json();
+
+            if(!response.ok) {
+                console.log("Adding Transaction Failed!", data.error);
+                return;
+            }
+            
+            setTransactions(prev => [...prev, data]);
+        }
+        catch(error) {
+            console.log("Adding Transaction Failed", error);
+        }
     }
 
     useEffect(() => {
