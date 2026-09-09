@@ -80,6 +80,16 @@ export const loginUser = async(req, res) => {
     }
 }
 
+export const logoutUser = (_req, res) => {
+    res.clearCookie("token", {
+        path: "/",
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+    });
+
+    res.status(200).json({message: "user logged out successfully"})
+}
+
 export const getMe = async(req, res) => {
     const { userId } = req.user;
 

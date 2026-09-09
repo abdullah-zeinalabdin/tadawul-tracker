@@ -50,8 +50,21 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
         setUserData({ email });
     }
 
-    const logout = () => {
+    const logout = async() => {
+        const response = await fetch("http://localhost:4000/users/logout", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            credentials: "include"
+        });
 
+        setUserData(null);
+        
+        if(!response.ok) {
+            const data = await response.json();
+            throw new Error(data.error || "Logout failed");
+        }
     }
     return (
         <AuthContext.Provider value={{ userData, login, logout }}>
