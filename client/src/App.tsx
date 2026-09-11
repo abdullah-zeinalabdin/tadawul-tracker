@@ -3,7 +3,7 @@ import SideBar from "./sidebar/SideBar.tsx";
 import { mainPageStyles } from "./styles/sxStyles";
 import ContentContainer from "./content/ContentContainer.tsx";
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "./pages/LoginPage.tsx";
+import LoginPage from "./pages/loginPage/LoginPage.tsx";
 import ProtectedRoutes from "./routes/ProtectedRoutes.tsx";
 
 function App() {
