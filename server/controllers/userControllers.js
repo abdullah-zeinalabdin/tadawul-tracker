@@ -15,6 +15,12 @@ export const registerUser = async(req, res) => {
             return;
         }
 
+        
+        if(typeof email !== "string" || typeof password !== "string") {
+            res.status(400).json({error: "Please send proper data form of string"});
+            return;
+        }
+
         if(!validator.isEmail(email)) {
             res.status(400).json({error: "Wrong Email Format"});
             return;
@@ -50,6 +56,11 @@ export const loginUser = async(req, res) => {
     try {
         if(!email || !password) {
             res.status(400).json({error: "Please Fill Both Fields"});
+            return;
+        }
+
+        if(typeof email !== "string" || typeof password !== "string") {
+            res.status(400).json({error: "Please send proper data form of string"});
             return;
         }
 
