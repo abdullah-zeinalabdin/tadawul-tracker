@@ -10,6 +10,12 @@ export interface LoginProps {
     password: string,
 }
 
+export interface RegisterProps {
+    email: string,
+    password: string,
+    // TODO: MORE FIELDS LATER
+}
+
 export const AuthProvider = ( { children }: AuthProviderProps) => {
     const [userData, setUserData] = useState<{ email: string } | null>(null);
     const [loading, setLoading] = useState(true);
@@ -70,8 +76,26 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
             throw new Error(data.error || "Logout failed");
         }
     }
+
+    const register = async({ email, password }: RegisterProps) => {
+        const response = await fetch("http://localhost:4000/users/register", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({ email, password }),
+        });
+
+        if(!response.ok) {
+            const data = await response.json();
+            throw new Error(data.error || "Registration failed");
+        }
+
+        console.log("Register Successfully");
+    }
+
     return (
-        <AuthContext.Provider value={{ userData, login, logout, loading }}>
+        <AuthContext.Provider value={{ userData, login, logout, register, loading }}>
             { children }
         </AuthContext.Provider>
     )

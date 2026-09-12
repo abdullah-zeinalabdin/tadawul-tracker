@@ -5,11 +5,13 @@ import ContentContainer from "./content/ContentContainer.tsx";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/loginPage/LoginPage.tsx";
 import ProtectedRoutes from "./routes/ProtectedRoutes.tsx";
+import RegisterPage from "./pages/registerPage/RegisterPage.tsx";
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />}/>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route 
       path="/"
       element={

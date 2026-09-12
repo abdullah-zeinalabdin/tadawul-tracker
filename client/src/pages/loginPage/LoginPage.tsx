@@ -1,12 +1,13 @@
-import { Stack, Typography, Button } from "@mui/material";
+import { Stack, Typography, Button, useTheme } from "@mui/material";
 import { useState } from "react";
 import { useAuth } from "../../context/Authentication/useAuth";
 import { useNavigate } from "react-router-dom";
 import PasswordField from "./PasswordField";
 import EmailField from "./EmailField";
+import { credsFormStyles, credsPageStyles } from "../../styles/sxStyles";
 
 
-interface Creds {
+export interface Creds {
     email: string,
     password: string,
 }
@@ -18,6 +19,8 @@ export default function LoginPage() {
         email: "",
         password: "",
     });
+
+    const theme = useTheme();
 
     const { login } = useAuth();
     const navigate = useNavigate();
@@ -38,8 +41,8 @@ export default function LoginPage() {
     }
 
     return (
-        <Stack sx={{ justifyContent: "center", alignItems: "center", height: "100vh", width: "100%", bgcolor: "#0d0d0d" }}>
-            <Stack sx={{ alignItems: "center", bgcolor: "#171717", padding: "30px", borderRadius: "12px" }}>
+        <Stack sx={credsPageStyles(theme)}>
+            <Stack sx={credsFormStyles(theme)}>
                     <Typography variant="h1">Login</Typography>
                     <Stack sx={{mt: "40px"}} spacing={5}>
                         <Stack spacing={2}>
