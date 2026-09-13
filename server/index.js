@@ -31,6 +31,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/transactions", transactionRouter);
 app.use("/quote", quoteRouter);
-app.use("/users", userRouter)
+app.use("/users", userRouter);
 
 startServer();

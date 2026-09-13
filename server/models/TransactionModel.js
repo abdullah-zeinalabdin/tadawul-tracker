@@ -29,6 +29,6 @@ const transactionSchema = new Schema({
         type: Date,
         required: true,
     },
-}, {timestamps: true});
+}, { timestamps: true });
 
 export const Transaction = mongoose.model("Transaction", transactionSchema);
