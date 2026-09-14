@@ -42,22 +42,25 @@ export const runDailySnapshot = async() => {
             };
         });
 
-        let walletValue = 0;
+        let unrealizedPL = 0;
+        let totalCostBasis = 0;
         for (const position of positions) {
             try {
                 const priceData = await fetchQuote(position.ticker);
-                walletValue += position.shares * priceData.price;
+                unrealizedPL += (position.shares * (priceData?.price ?? position.avgCost)) - (position.shares * position.avgCost);
+                totalCostBasis += (position.shares * position.avgCost);
             }
             catch(error) {
                 console.log(`Failed to fetch ${position.ticker} for user ${user._id}`, error);
-                walletValue += position.shares * position.avgCost;
+                unrealizedPL += 0;
+                totalCostBasis += (position.shares * position.avgCost);
             }
         }
 
         try {
             await Snapshot.findOneAndUpdate(
                 { userId: user._id, date },
-                { userId: user._id, date, walletValue, tasiValue },
+                { userId: user._id, date, unrealizedPL, totalCostBasis, tasiValue },
                 { upsert: true, new: true },
             )
         }

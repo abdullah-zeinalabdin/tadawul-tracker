@@ -12,7 +12,11 @@ const snapshotSchema = new Schema({
         type: Date,
         required: true,
     },
-    walletValue: {
+    unrealizedPL: {
+        type: Number,
+        required: true,
+    },
+    totalCostBasis: {
         type: Number,
         required: true,
     },
