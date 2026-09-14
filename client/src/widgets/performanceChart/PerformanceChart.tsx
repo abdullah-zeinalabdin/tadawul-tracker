@@ -1,6 +1,8 @@
 import { Stack } from "@mui/material";
 import ReactECharts from 'echarts-for-react'
-export default function PerformanceChart() {
+import type { ChartDataProps } from "./PerformanceChartContainer";
+
+export default function PerformanceChart({ chartData }: ChartDataProps) {
     const option = {
         tooltip: {
             trigger: 'axis',
@@ -25,7 +27,7 @@ export default function PerformanceChart() {
         xAxis: {
             type: 'category',
             boundaryGap: true,
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ]
+            data: chartData.dates,
         },
         yAxis: {
             type: 'value',
@@ -39,13 +41,13 @@ export default function PerformanceChart() {
             name: 'Your Performance',
             type: 'line',
             smooth: true,
-            data: [0, 0.2, 0.15, 0.35, 0.5, 0.4, 0.55, 0.7, 0.6, 0.8, 0.9, 0.85, 1.0, 1.2]
+            data: chartData.myPerformance,
             },
             {
             name: 'TASI',
             type: 'line',
             smooth: true,
-            data: [0, 0.4, 0.8, 1.3, 0.9, 1.1, 0.6, 0.5, 0.8, 1.1, 1.5, 1.1, 1.3, 0.9]
+            data: chartData.tasiPerformance,
             }
         ]
     };

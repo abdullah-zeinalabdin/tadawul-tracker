@@ -8,10 +8,17 @@ import { useMemo } from "react";
 import { usePrices } from "../context/usePrices";
 import type { AssetsPerformanceItem } from "./assetsPerformance/types";
 import type { DailyPerformanceItem } from "./dailyPerformance/types";
+import { useSnapshots } from "../context/useSnapshots";
+import { deriveChartData } from "./performanceChart/deriveChartData";
+
 export default function WidgetsContainer() {
     const positions = usePositions();
     const tickers = useMemo(() => positions.map((p) => p.ticker), [positions]);
     const prices = usePrices(tickers);
+
+    const snapshots = useSnapshots();
+    const chartData = useMemo(() => deriveChartData(snapshots), [snapshots]);
+
     const portfolioValue = useMemo(() => {
         return positions.reduce((acc, p) => {
             return acc + p.shares * (prices[p.ticker]?.price ?? p.avgCost);
@@ -42,6 +49,8 @@ export default function WidgetsContainer() {
             change: Number(priceData?.change ?? 0),
         }
     });
+
+
     return(
         <Grid container spacing={3}>
             <Grid size={4}>
@@ -49,7 +58,7 @@ export default function WidgetsContainer() {
             </Grid>
             <Grid size={8}>
                 <Stack>
-                    <PerformanceChartContainer />
+                    <PerformanceChartContainer chartData={chartData} />
                 </Stack>
             </Grid>
             <Grid size={6}>
