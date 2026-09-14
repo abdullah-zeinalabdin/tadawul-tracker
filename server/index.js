@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import { transactionRouter } from "./routes/transaction.js";
 import { quoteRouter } from "./routes/quote.js";
 import { userRouter } from "./routes/user.js";
+import { snapshotRouter } from "./routes/snapshot.js";
 
 async function startServer() {
     try {
@@ -32,5 +33,5 @@ app.use(cookieParser());
 app.use("/transactions", transactionRouter);
 app.use("/quote", quoteRouter);
 app.use("/users", userRouter);
-
+app.use("/snapshot", snapshotRouter);
 startServer();
