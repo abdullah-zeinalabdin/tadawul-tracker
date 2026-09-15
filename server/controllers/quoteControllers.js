@@ -1,4 +1,4 @@
-import { fetchQuote } from "../services/sahm.js";
+import { fetchQuote } from "../services/dataProvider.js";
 
 export const quoteByTicker = async(req, res) => {
     const { ticker } = req.params;

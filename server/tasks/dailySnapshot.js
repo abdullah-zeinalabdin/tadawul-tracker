@@ -1,7 +1,7 @@
 import cron from "node-cron";
 import { User } from "../models/UserModel.js";
 import { Transaction } from "../models/TransactionModel.js";
-import { fetchMarketSummary, fetchQuote } from "../services/sahm.js";
+import { fetchMarketSummary, fetchQuote } from "../services/dataProvider.js";
 import { Snapshot } from "../models/SnapshotModel.js";
 
 export const runDailySnapshot = async() => {
