@@ -34,7 +34,7 @@ export const runDailySnapshot = async() => {
             return acc;
         }, {});
 
-        const positions = Object.entries(grouped).map(([ticker, data]) => {
+        const positions = Object.entries(grouped).filter(([, data]) => data.shares !== 0).map(([ticker, data]) => {
             return {
                 ticker: ticker,
                 shares: data.shares,

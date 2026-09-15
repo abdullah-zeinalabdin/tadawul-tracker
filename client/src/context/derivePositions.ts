@@ -26,7 +26,7 @@ const derivePositions = (transactions: Transaction[]): Position[] => {
         return acc;
     }, {} as Record<string, { shares: number; totalCost: number }>);
 
-    const positions: Position[] = Object.entries(grouped).map(([ticker, data]) => {
+    const positions: Position[] = Object.entries(grouped).filter(([, data]) => data.shares !== 0).map(([ticker, data]) => {
         return {
             ticker: ticker,
             shares: data.shares,
