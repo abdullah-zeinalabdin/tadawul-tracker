@@ -7,7 +7,6 @@ import { transactionRouter } from "./routes/transaction.js";
 import { quoteRouter } from "./routes/quote.js";
 import { userRouter } from "./routes/user.js";
 import { snapshotRouter } from "./routes/snapshot.js";
-import { runDailySnapshot } from "./tasks/dailySnapshot.js";
 
 async function startServer() {
     try {

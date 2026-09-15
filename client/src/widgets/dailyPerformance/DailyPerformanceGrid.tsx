@@ -11,7 +11,9 @@ export default function DailyPerformanceGrid({ dailyPerformance }: DailyPerforma
                     <Stack key={item.ticker} sx={ todaysPerformanceCardStyles(theme) } spacing={2}>
                         <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
                             <Typography>{item.ticker}</Typography>
-                            <Typography sx={[pillIndicator(theme, item.priceChangePercent >= 0), numberStyles]}>{item.priceChangePercent}%</Typography>
+                            <Typography sx={[pillIndicator(theme, item.priceChangePercent >= 0), numberStyles]}>
+                                {(item.priceChangePercent).toFixed(2)}%
+                            </Typography>
                         </Stack>
                         <Stack>
                             <Typography sx={numberStyles}>{item.todayPrice} SAR</Typography>

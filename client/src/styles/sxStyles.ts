@@ -119,7 +119,7 @@ export const widgetsBaseStyles = (theme: Theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: "25px",
     borderRadius: `${theme.shape.borderRadius}px`,
-    height: "500px",
+    minHeight: "500px",
 });
 
 export const pillIndicator = (theme: Theme, isPositive: boolean) => ({

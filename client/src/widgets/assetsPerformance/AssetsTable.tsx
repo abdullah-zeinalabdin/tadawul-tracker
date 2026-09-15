@@ -39,7 +39,7 @@ export default function AssetsTable({ rows }: AssetsPerformanceProps ) {
                                         { row.gain >= 0 ? "+" : "" }{ (row.gain).toFixed(2) }%
                                     </Typography>
                                 </TableCell>
-                                <TableCell  sx={numberStyles}>{row.contribution} SAR</TableCell>
+                                <TableCell  sx={numberStyles}>{(row.contribution).toFixed(2)} SAR</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
