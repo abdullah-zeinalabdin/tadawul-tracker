@@ -1,274 +1,1634 @@
 [
-    { "ticker": "2030", "name": "SARCO", "shariaCompliant": true },
-    { "ticker": "2222", "name": "SAUDI ARAMCO", "shariaCompliant": true },
-    { "ticker": "2380", "name": "PETRO RABIGH", "shariaCompliant": true },
-    { "ticker": "2381", "name": "ARABIAN DRILLING", "shariaCompliant": true },
-    { "ticker": "2382", "name": "ADES", "shariaCompliant": true },
-    { "ticker": "4030", "name": "BAHRI", "shariaCompliant": true },
-    { "ticker": "1201", "name": "TAKWEEN", "shariaCompliant": true },
-    { "ticker": "1202", "name": "MEPCO", "shariaCompliant": true },
-    { "ticker": "1210", "name": "BCI", "shariaCompliant": true },
-    { "ticker": "1211", "name": "MAADEN", "shariaCompliant": true },
-    { "ticker": "1301", "name": "ASLAK", "shariaCompliant": true },
-    { "ticker": "1304", "name": "ALYAMAMAH STEEL", "shariaCompliant": true },
-    { "ticker": "1320", "name": "SSP", "shariaCompliant": true },
-    { "ticker": "1321", "name": "EAST PIPES", "shariaCompliant": true },
-    { "ticker": "1322", "name": "AMAK", "shariaCompliant": true },
-    { "ticker": "1323", "name": "UCIC", "shariaCompliant": true },
-    { "ticker": "1324", "name": "SALEH ALRASHED", "shariaCompliant": true },
-    { "ticker": "2001", "name": "CHEMANOL", "shariaCompliant": true },
-    { "ticker": "2010", "name": "SABIC", "shariaCompliant": true },
-    { "ticker": "2020", "name": "SABIC AGRI-NUTRIENTS", "shariaCompliant": true },
-    { "ticker": "2060", "name": "TASNEE", "shariaCompliant": true },
-    { "ticker": "2090", "name": "NGC", "shariaCompliant": true },
-    { "ticker": "2150", "name": "ZOUJAJ", "shariaCompliant": true },
-    { "ticker": "2170", "name": "ALUJAIN", "shariaCompliant": true },
-    { "ticker": "2180", "name": "FIPCO", "shariaCompliant": true },
-    { "ticker": "2200", "name": "APC", "shariaCompliant": true },
-    { "ticker": "2210", "name": "NAMA CHEMICALS", "shariaCompliant": true },
-    { "ticker": "2220", "name": "MAADANIYAH", "shariaCompliant": true },
-    { "ticker": "2223", "name": "LUBEREF", "shariaCompliant": true },
-    { "ticker": "2240", "name": "SENAAT", "shariaCompliant": true },
-    { "ticker": "2250", "name": "SIIG", "shariaCompliant": true },
-    { "ticker": "2290", "name": "YANSAB", "shariaCompliant": true },
-    { "ticker": "2300", "name": "SPM", "shariaCompliant": true },
-    { "ticker": "2310", "name": "SIPCHEM", "shariaCompliant": true },
-    { "ticker": "2330", "name": "ADVANCED", "shariaCompliant": true },
-    { "ticker": "2350", "name": "SAUDI KAYAN", "shariaCompliant": true },
-    { "ticker": "2360", "name": "SVCP", "shariaCompliant": true },
-    { "ticker": "3002", "name": "NAJRAN CEMENT", "shariaCompliant": true },
-    { "ticker": "3003", "name": "CITY CEMENT", "shariaCompliant": true },
-    { "ticker": "3004", "name": "NORTHERN CEMENT", "shariaCompliant": true },
-    { "ticker": "3005", "name": "UACC", "shariaCompliant": true },
-    { "ticker": "3007", "name": "OASIS", "shariaCompliant": true },
-    { "ticker": "3008", "name": "ALKATHIRI", "shariaCompliant": true },
-    { "ticker": "3010", "name": "ACC", "shariaCompliant": true },
-    { "ticker": "3020", "name": "YC", "shariaCompliant": true },
-    { "ticker": "3030", "name": "SAUDI CEMENT", "shariaCompliant": true },
-    { "ticker": "3040", "name": "QACCO", "shariaCompliant": true },
-    { "ticker": "3050", "name": "SPCC", "shariaCompliant": true },
-    { "ticker": "3060", "name": "YCC", "shariaCompliant": true },
-    { "ticker": "3080", "name": "EPCCO", "shariaCompliant": true },
-    { "ticker": "3090", "name": "TCC", "shariaCompliant": true },
-    { "ticker": "3091", "name": "JOUF CEMENT", "shariaCompliant": true },
-    { "ticker": "3092", "name": "RIYADH CEMENT", "shariaCompliant": true },
-    { "ticker": "4143", "name": "TALCO", "shariaCompliant": true },
-    { "ticker": "1212", "name": "ASTRA INDUSTRIAL", "shariaCompliant": true },
-    { "ticker": "1214", "name": "SHAKER", "shariaCompliant": true },
-    { "ticker": "1302", "name": "BAWAN", "shariaCompliant": true },
-    { "ticker": "1303", "name": "EIC", "shariaCompliant": true },
-    { "ticker": "2040", "name": "SAUDI CERAMICS", "shariaCompliant": true },
-    { "ticker": "2110", "name": "SAUDI CABLE", "shariaCompliant": true },
-    { "ticker": "2160", "name": "AMIANTIT", "shariaCompliant": true },
-    { "ticker": "2320", "name": "ALBABTAIN", "shariaCompliant": true },
-    { "ticker": "2370", "name": "MESC", "shariaCompliant": true },
-    { "ticker": "4110", "name": "BATIC", "shariaCompliant": true },
-    { "ticker": "4140", "name": "SIECO", "shariaCompliant": true },
-    { "ticker": "4141", "name": "ALOMRAN", "shariaCompliant": true },
-    { "ticker": "4142", "name": "RIYADH CABLES", "shariaCompliant": true },
-    { "ticker": "4144", "name": "RAOOM", "shariaCompliant": true },
-    { "ticker": "4145", "name": "OGC", "shariaCompliant": true },
-    { "ticker": "4146", "name": "GAS", "shariaCompliant": true },
-    { "ticker": "4147", "name": "CGS", "shariaCompliant": true },
-    { "ticker": "4148", "name": "ALWASAIL INDUSTRIAL", "shariaCompliant": true },
-    { "ticker": "1831", "name": "MAHARAH", "shariaCompliant": true },
-    { "ticker": "1832", "name": "SADR", "shariaCompliant": true },
-    { "ticker": "1833", "name": "ALMAWARID", "shariaCompliant": true },
-    { "ticker": "1834", "name": "SMASCO", "shariaCompliant": true },
-    { "ticker": "1835", "name": "TAMKEEN", "shariaCompliant": true },
-    { "ticker": "4270", "name": "SPPC", "shariaCompliant": true },
-    { "ticker": "6004", "name": "CATRION", "shariaCompliant": true },
-    { "ticker": "2190", "name": "SISCO HOLDING", "shariaCompliant": true },
-    { "ticker": "4031", "name": "SGS", "shariaCompliant": true },
-    { "ticker": "4040", "name": "SAPTCO", "shariaCompliant": true },
-    { "ticker": "4260", "name": "BUDGET SAUDI", "shariaCompliant": true },
-    { "ticker": "4261", "name": "THEEB", "shariaCompliant": true },
-    { "ticker": "4262", "name": "LUMI", "shariaCompliant": true },
-    { "ticker": "4263", "name": "SAL", "shariaCompliant": true },
-    { "ticker": "4264", "name": "FLYNAS", "shariaCompliant": true },
-    { "ticker": "4265", "name": "CHERRY", "shariaCompliant": true },
-    { "ticker": "1213", "name": "NASEEJ", "shariaCompliant": true },
-    { "ticker": "2130", "name": "SIDC", "shariaCompliant": true },
-    { "ticker": "2340", "name": "ARTEX", "shariaCompliant": true },
-    { "ticker": "4011", "name": "LAZURDE", "shariaCompliant": true },
-    { "ticker": "4012", "name": "ALASEEL", "shariaCompliant": true },
-    { "ticker": "1810", "name": "SEERA", "shariaCompliant": true },
-    { "ticker": "1820", "name": "BAAN", "shariaCompliant": true },
-    { "ticker": "1830", "name": "LEEJAM SPORTS", "shariaCompliant": true },
-    { "ticker": "4090", "name": "TAIBA", "shariaCompliant": true },
-    { "ticker": "4170", "name": "TECO", "shariaCompliant": true },
-    { "ticker": "4250", "name": "JABAL OMAR", "shariaCompliant": true },
-    { "ticker": "4290", "name": "ALKHALEEJ TRNG", "shariaCompliant": true },
-    { "ticker": "4291", "name": "NCLE", "shariaCompliant": true },
-    { "ticker": "4292", "name": "ATAA", "shariaCompliant": true },
-    { "ticker": "6002", "name": "HERFY FOODS", "shariaCompliant": true },
-    { "ticker": "6012", "name": "RAYDAN", "shariaCompliant": true },
-    { "ticker": "6013", "name": "DWF", "shariaCompliant": true },
-    { "ticker": "6014", "name": "ALAMAR", "shariaCompliant": true },
-    { "ticker": "6015", "name": "AMERICANA", "shariaCompliant": true },
-    { "ticker": "6016", "name": "BURGERIZZR", "shariaCompliant": true },
-    { "ticker": "6017", "name": "JAHEZ", "shariaCompliant": true },
-    { "ticker": "6018", "name": "SPORT CLUBS", "shariaCompliant": true },
-    { "ticker": "6019", "name": "ALMASAR ALSHAMIL", "shariaCompliant": true },
-    { "ticker": "6022", "name": "ARMAH", "shariaCompliant": true },
-    { "ticker": "4070", "name": "TAPRCO", "shariaCompliant": true },
-    { "ticker": "4071", "name": "ALARABIA", "shariaCompliant": true },
-    { "ticker": "4072", "name": "MBC GROUP", "shariaCompliant": true },
-    { "ticker": "4210", "name": "SRMG", "shariaCompliant": true },
-    { "ticker": "4003", "name": "EXTRA", "shariaCompliant": true },
-    { "ticker": "4008", "name": "SACO", "shariaCompliant": true },
-    { "ticker": "4050", "name": "SASCO", "shariaCompliant": true },
-    { "ticker": "4051", "name": "BAAZEEM", "shariaCompliant": true },
-    { "ticker": "4180", "name": "FITAIHI GROUP", "shariaCompliant": true },
-    { "ticker": "4190", "name": "JARIR", "shariaCompliant": true },
-    { "ticker": "4191", "name": "ABO MOATI", "shariaCompliant": true },
-    { "ticker": "4192", "name": "ALSAIF GALLERY", "shariaCompliant": true },
-    { "ticker": "4193", "name": "NICE ONE", "shariaCompliant": true },
-    { "ticker": "4194", "name": "BUILD STATION", "shariaCompliant": true },
-    { "ticker": "4200", "name": "ALDREES", "shariaCompliant": true },
-    { "ticker": "4240", "name": "CENOMI RETAIL", "shariaCompliant": true },
-    { "ticker": "4001", "name": "A.OTHAIM MARKET", "shariaCompliant": true },
-    { "ticker": "4006", "name": "FARM SUPERSTORES", "shariaCompliant": true },
-    { "ticker": "4061", "name": "ANAAM HOLDING", "shariaCompliant": true },
-    { "ticker": "4160", "name": "THIMAR", "shariaCompliant": true },
-    { "ticker": "4161", "name": "BINDAWOOD", "shariaCompliant": true },
-    { "ticker": "4162", "name": "ALMUNAJEM", "shariaCompliant": true },
-    { "ticker": "4163", "name": "ALDAWAA", "shariaCompliant": true },
-    { "ticker": "4164", "name": "NAHDI", "shariaCompliant": true },
-    { "ticker": "2050", "name": "SAVOLA GROUP", "shariaCompliant": true },
-    { "ticker": "2100", "name": "WAFRAH", "shariaCompliant": true },
-    { "ticker": "2140", "name": "AYYAN", "shariaCompliant": true },
-    { "ticker": "2270", "name": "SADAFCO", "shariaCompliant": true },
-    { "ticker": "2280", "name": "ALMARAI", "shariaCompliant": true },
-    { "ticker": "2281", "name": "TANMIAH", "shariaCompliant": true },
-    { "ticker": "2282", "name": "NAQI", "shariaCompliant": true },
-    { "ticker": "2283", "name": "FIRST MILLS", "shariaCompliant": true },
-    { "ticker": "2284", "name": "MODERN MILLS", "shariaCompliant": true },
-    { "ticker": "2285", "name": "ARABIAN MILLS", "shariaCompliant": true },
-    { "ticker": "2286", "name": "FOURTH MILLING", "shariaCompliant": true },
-    { "ticker": "2287", "name": "ENTAJ", "shariaCompliant": true },
-    { "ticker": "2288", "name": "NOFOTH", "shariaCompliant": true },
-    { "ticker": "4080", "name": "SINAD HOLDING", "shariaCompliant": true },
-    { "ticker": "6001", "name": "HB", "shariaCompliant": true },
-    { "ticker": "6010", "name": "NADEC", "shariaCompliant": true },
-    { "ticker": "6020", "name": "GACO", "shariaCompliant": true },
-    { "ticker": "6040", "name": "TADCO", "shariaCompliant": true },
-    { "ticker": "6050", "name": "SFICO", "shariaCompliant": true },
-    { "ticker": "6060", "name": "SHARQIYAH DEV", "shariaCompliant": true },
-    { "ticker": "6070", "name": "ALJOUF", "shariaCompliant": true },
-    { "ticker": "6090", "name": "JAZADCO", "shariaCompliant": true },
-    { "ticker": "4165", "name": "ALMAJED OUD", "shariaCompliant": true },
-    { "ticker": "2230", "name": "CHEMICAL", "shariaCompliant": true },
-    { "ticker": "4002", "name": "MOUWASAT", "shariaCompliant": true },
-    { "ticker": "4004", "name": "DALLAH HEALTH", "shariaCompliant": true },
-    { "ticker": "4005", "name": "CARE", "shariaCompliant": true },
-    { "ticker": "4007", "name": "ALHAMMADI", "shariaCompliant": true },
-    { "ticker": "4009", "name": "SAUDI GERMAN HEALTH", "shariaCompliant": true },
-    { "ticker": "4013", "name": "SULAIMAN ALHABIB", "shariaCompliant": true },
-    { "ticker": "4014", "name": "EQUIPMENT HOUSE", "shariaCompliant": true },
-    { "ticker": "4017", "name": "FAKEEH CARE", "shariaCompliant": true },
-    { "ticker": "4018", "name": "ALMOOSA", "shariaCompliant": true },
-    { "ticker": "4019", "name": "SMC HEALTHCARE", "shariaCompliant": true },
-    { "ticker": "4021", "name": "CMCER", "shariaCompliant": true },
-    { "ticker": "2070", "name": "SPIMACO", "shariaCompliant": true },
-    { "ticker": "4015", "name": "JAMJOOM PHARMA", "shariaCompliant": true },
-    { "ticker": "4016", "name": "AVALON PHARMA", "shariaCompliant": true },
-    { "ticker": "1010", "name": "RIBL", "shariaCompliant": true },
-    { "ticker": "1020", "name": "BJAZ", "shariaCompliant": true },
-    { "ticker": "1030", "name": "SAIB", "shariaCompliant": true },
-    { "ticker": "1050", "name": "BSF", "shariaCompliant": true },
-    { "ticker": "1060", "name": "SAB", "shariaCompliant": true },
-    { "ticker": "1080", "name": "ANB", "shariaCompliant": true },
-    { "ticker": "1120", "name": "ALRAJHI", "shariaCompliant": true },
-    { "ticker": "1140", "name": "ALBILAD", "shariaCompliant": true },
-    { "ticker": "1150", "name": "ALINMA", "shariaCompliant": true },
-    { "ticker": "1180", "name": "SNB", "shariaCompliant": true },
-    { "ticker": "1111", "name": "TADAWUL GROUP", "shariaCompliant": true },
-    { "ticker": "1182", "name": "AMLAK", "shariaCompliant": true },
-    { "ticker": "1183", "name": "SHL", "shariaCompliant": true },
-    { "ticker": "2120", "name": "SAIC", "shariaCompliant": true },
-    { "ticker": "4081", "name": "NAYIFAT", "shariaCompliant": true },
-    { "ticker": "4082", "name": "MRNA", "shariaCompliant": true },
-    { "ticker": "4083", "name": "TASHEEL", "shariaCompliant": true },
-    { "ticker": "4084", "name": "DERAYAH", "shariaCompliant": true },
-    { "ticker": "4130", "name": "SAUDI DARB", "shariaCompliant": true },
-    { "ticker": "4280", "name": "KINGDOM", "shariaCompliant": true },
-    { "ticker": "8010", "name": "TAWUNIYA", "shariaCompliant": true },
-    { "ticker": "8012", "name": "JAZIRA TAKAFUL", "shariaCompliant": true },
-    { "ticker": "8020", "name": "MALATH INSURANCE", "shariaCompliant": true },
-    { "ticker": "8030", "name": "MEDGULF", "shariaCompliant": true },
-    { "ticker": "8040", "name": "MUTAKAMELA", "shariaCompliant": true },
-    { "ticker": "8050", "name": "SALAMA", "shariaCompliant": true },
-    { "ticker": "8060", "name": "WALAA", "shariaCompliant": true },
-    { "ticker": "8070", "name": "ARABIAN SHIELD", "shariaCompliant": true },
-    { "ticker": "8100", "name": "SAICO", "shariaCompliant": true },
-    { "ticker": "8120", "name": "GULF UNION ALAHLIA", "shariaCompliant": true },
-    { "ticker": "8150", "name": "ACIG", "shariaCompliant": true },
-    { "ticker": "8160", "name": "AICC", "shariaCompliant": true },
-    { "ticker": "8170", "name": "ALETIHAD", "shariaCompliant": true },
-    { "ticker": "8180", "name": "ALSAGR INSURANCE", "shariaCompliant": true },
-    { "ticker": "8190", "name": "UCA", "shariaCompliant": true },
-    { "ticker": "8200", "name": "SAUDI RE", "shariaCompliant": true },
-    { "ticker": "8210", "name": "BUPA ARABIA", "shariaCompliant": true },
-    { "ticker": "8230", "name": "ALRAJHI TAKAFUL", "shariaCompliant": true },
-    { "ticker": "8240", "name": "CHUBB", "shariaCompliant": true },
-    { "ticker": "8250", "name": "GIG", "shariaCompliant": true },
-    { "ticker": "8260", "name": "GULF GENERAL", "shariaCompliant": true },
-    { "ticker": "8280", "name": "LIVA", "shariaCompliant": true },
-    { "ticker": "8300", "name": "WATANIYA", "shariaCompliant": true },
-    { "ticker": "8310", "name": "AMANA INSURANCE", "shariaCompliant": true },
-    { "ticker": "8311", "name": "ENAYA", "shariaCompliant": true },
-    { "ticker": "8313", "name": "RASAN", "shariaCompliant": true },
-    { "ticker": "7200", "name": "MIS", "shariaCompliant": true },
-    { "ticker": "7201", "name": "ARAB SEA", "shariaCompliant": true },
-    { "ticker": "7202", "name": "SOLUTIONS", "shariaCompliant": true },
-    { "ticker": "7203", "name": "ELM", "shariaCompliant": true },
-    { "ticker": "7204", "name": "2P", "shariaCompliant": true },
-    { "ticker": "7205", "name": "DBS", "shariaCompliant": true },
-    { "ticker": "7211", "name": "AZM", "shariaCompliant": true },
-    { "ticker": "7010", "name": "STC", "shariaCompliant": true },
-    { "ticker": "7020", "name": "ETIHAD ETISALAT", "shariaCompliant": true },
-    { "ticker": "7030", "name": "ZAIN KSA", "shariaCompliant": true },
-    { "ticker": "7040", "name": "GO TELECOM", "shariaCompliant": true },
-    { "ticker": "2080", "name": "GASCO HOLDING", "shariaCompliant": true },
-    { "ticker": "2081", "name": "AWPT", "shariaCompliant": true },
-    { "ticker": "2082", "name": "ACWA", "shariaCompliant": true },
-    { "ticker": "2083", "name": "MARAFIQ", "shariaCompliant": true },
-    { "ticker": "2084", "name": "MIAHONA", "shariaCompliant": true },
-    { "ticker": "5110", "name": "SAUDI ENERGY", "shariaCompliant": true },
-    { "ticker": "4330", "name": "RIYAD REIT", "shariaCompliant": true },
-    { "ticker": "4331", "name": "ALJAZIRA REIT", "shariaCompliant": true },
-    { "ticker": "4332", "name": "JADWA REIT ALHARAMAIN", "shariaCompliant": true },
-    { "ticker": "4333", "name": "TALEEM REIT", "shariaCompliant": true },
-    { "ticker": "4334", "name": "AL MAATHER REIT", "shariaCompliant": true },
-    { "ticker": "4335", "name": "MUSHARAKA REIT", "shariaCompliant": true },
-    { "ticker": "4336", "name": "MULKIA REIT", "shariaCompliant": true },
-    { "ticker": "4337", "name": "AL AZIZIAH REIT", "shariaCompliant": true },
-    { "ticker": "4338", "name": "ALAHLI REIT 1", "shariaCompliant": true },
-    { "ticker": "4339", "name": "DERAYAH REIT", "shariaCompliant": true },
-    { "ticker": "4340", "name": "AL RAJHI REIT", "shariaCompliant": true },
-    { "ticker": "4342", "name": "JADWA REIT SAUDI", "shariaCompliant": true },
-    { "ticker": "4344", "name": "SEDCO CAPITAL REIT", "shariaCompliant": true },
-    { "ticker": "4345", "name": "ALINMA RETAIL REIT", "shariaCompliant": true },
-    { "ticker": "4346", "name": "MEFIC REIT", "shariaCompliant": true },
-    { "ticker": "4347", "name": "BONYAN REIT", "shariaCompliant": true },
-    { "ticker": "4348", "name": "ALKHABEER REIT", "shariaCompliant": true },
-    { "ticker": "4349", "name": "ALINMA HOSPITALITY REIT", "shariaCompliant": true },
-    { "ticker": "4350", "name": "ALISTITHMAR REIT", "shariaCompliant": true },
-    { "ticker": "4020", "name": "ALAKARIA", "shariaCompliant": true },
-    { "ticker": "4100", "name": "MCDC", "shariaCompliant": true },
-    { "ticker": "4150", "name": "ARDCO", "shariaCompliant": true },
-    { "ticker": "4220", "name": "EMAAR EC", "shariaCompliant": true },
-    { "ticker": "4230", "name": "RED SEA", "shariaCompliant": true },
-    { "ticker": "4300", "name": "DAR ALARKAN", "shariaCompliant": true },
-    { "ticker": "4310", "name": "KEC", "shariaCompliant": true },
-    { "ticker": "4320", "name": "ALANDALUS", "shariaCompliant": true },
-    { "ticker": "4321", "name": "CENOMI CENTERS", "shariaCompliant": true },
-    { "ticker": "4322", "name": "RETAL", "shariaCompliant": true },
-    { "ticker": "4323", "name": "SUMOU", "shariaCompliant": true },
-    { "ticker": "4324", "name": "BANAN", "shariaCompliant": true },
-    { "ticker": "4325", "name": "MASAR", "shariaCompliant": true },
-    { "ticker": "4326", "name": "ALMAJDIAH", "shariaCompliant": true },
-    { "ticker": "4327", "name": "ALRAMZ", "shariaCompliant": true },
-    { "ticker": "4328", "name": "LADUN", "shariaCompliant": true }
+    {
+        "ticker": "2030",
+        "name": "SARCO",
+        "shariaCompliant": true,
+        "sector": "Energy"
+    },
+    {
+        "ticker": "2222",
+        "name": "SAUDI ARAMCO",
+        "shariaCompliant": true,
+        "sector": "Energy"
+    },
+    {
+        "ticker": "2380",
+        "name": "PETRO RABIGH",
+        "shariaCompliant": "mixed",
+        "sector": "Energy"
+    },
+    {
+        "ticker": "2381",
+        "name": "ARABIAN DRILLING",
+        "shariaCompliant": true,
+        "sector": "Energy"
+    },
+    {
+        "ticker": "2382",
+        "name": "ADES",
+        "shariaCompliant": "mixed",
+        "sector": "Energy"
+    },
+    {
+        "ticker": "4030",
+        "name": "BAHRI",
+        "shariaCompliant": true,
+        "sector": "Energy"
+    },
+    {
+        "ticker": "1201",
+        "name": "TAKWEEN",
+        "shariaCompliant": false,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1202",
+        "name": "MEPCO",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1210",
+        "name": "BCI",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1211",
+        "name": "MAADEN",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1301",
+        "name": "ASLAK",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1304",
+        "name": "ALYAMAMAH STEEL",
+        "shariaCompliant": false,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1320",
+        "name": "SSP",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1321",
+        "name": "EAST PIPES",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1322",
+        "name": "AMAK",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1323",
+        "name": "UCIC",
+        "shariaCompliant": false,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1324",
+        "name": "SALEH ALRASHED",
+        "shariaCompliant": null,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2001",
+        "name": "CHEMANOL",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2010",
+        "name": "SABIC",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2020",
+        "name": "SABIC AGRI-NUTRIENTS",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2060",
+        "name": "TASNEE",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2090",
+        "name": "NGC",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2150",
+        "name": "ZOUJAJ",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2170",
+        "name": "ALUJAIN",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2180",
+        "name": "FIPCO",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2200",
+        "name": "APC",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2210",
+        "name": "NAMA CHEMICALS",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2220",
+        "name": "MAADANIYAH",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2223",
+        "name": "LUBEREF",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2240",
+        "name": "SENAAT",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2250",
+        "name": "SIIG",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2290",
+        "name": "YANSAB",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2300",
+        "name": "SPM",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2310",
+        "name": "SIPCHEM",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2330",
+        "name": "ADVANCED",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2350",
+        "name": "SAUDI KAYAN",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "2360",
+        "name": "SVCP",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3002",
+        "name": "NAJRAN CEMENT",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3003",
+        "name": "CITY CEMENT",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3004",
+        "name": "NORTHERN CEMENT",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3005",
+        "name": "UACC",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3007",
+        "name": "OASIS",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3008",
+        "name": "ALKATHIRI",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3010",
+        "name": "ACC",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3020",
+        "name": "YC",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3030",
+        "name": "SAUDI CEMENT",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3040",
+        "name": "QACCO",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3050",
+        "name": "SPCC",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3060",
+        "name": "YCC",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3080",
+        "name": "EPCCO",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3090",
+        "name": "TCC",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3091",
+        "name": "JOUF CEMENT",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "3092",
+        "name": "RIYADH CEMENT",
+        "shariaCompliant": "mixed",
+        "sector": "Materials"
+    },
+    {
+        "ticker": "4143",
+        "name": "TALCO",
+        "shariaCompliant": true,
+        "sector": "Materials"
+    },
+    {
+        "ticker": "1212",
+        "name": "ASTRA INDUSTRIAL",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "1214",
+        "name": "SHAKER",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "1302",
+        "name": "BAWAN",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "1303",
+        "name": "EIC",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "2040",
+        "name": "SAUDI CERAMICS",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "2110",
+        "name": "SAUDI CABLE",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "2160",
+        "name": "AMIANTIT",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "2320",
+        "name": "ALBABTAIN",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "2370",
+        "name": "MESC",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4110",
+        "name": "BATIC",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4140",
+        "name": "SIECO",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4141",
+        "name": "ALOMRAN",
+        "shariaCompliant": "mixed",
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4142",
+        "name": "RIYADH CABLES",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4144",
+        "name": "RAOOM",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4145",
+        "name": "OGC",
+        "shariaCompliant": true,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4146",
+        "name": "GAS",
+        "shariaCompliant": null,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4147",
+        "name": "CGS",
+        "shariaCompliant": null,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "4148",
+        "name": "ALWASAIL INDUSTRIAL",
+        "shariaCompliant": null,
+        "sector": "Capital Goods"
+    },
+    {
+        "ticker": "1831",
+        "name": "MAHARAH",
+        "shariaCompliant": true,
+        "sector": "Commercial & Professional Svc"
+    },
+    {
+        "ticker": "1832",
+        "name": "SADR",
+        "shariaCompliant": true,
+        "sector": "Commercial & Professional Svc"
+    },
+    {
+        "ticker": "1833",
+        "name": "ALMAWARID",
+        "shariaCompliant": true,
+        "sector": "Commercial & Professional Svc"
+    },
+    {
+        "ticker": "1834",
+        "name": "SMASCO",
+        "shariaCompliant": true,
+        "sector": "Commercial & Professional Svc"
+    },
+    {
+        "ticker": "1835",
+        "name": "TAMKEEN",
+        "shariaCompliant": true,
+        "sector": "Commercial & Professional Svc"
+    },
+    {
+        "ticker": "4270",
+        "name": "SPPC",
+        "shariaCompliant": false,
+        "sector": "Commercial & Professional Svc"
+    },
+    {
+        "ticker": "6004",
+        "name": "CATRION",
+        "shariaCompliant": "mixed",
+        "sector": "Commercial & Professional Svc"
+    },
+    {
+        "ticker": "2190",
+        "name": "SISCO HOLDING",
+        "shariaCompliant": "mixed",
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "4031",
+        "name": "SGS",
+        "shariaCompliant": true,
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "4040",
+        "name": "SAPTCO",
+        "shariaCompliant": true,
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "4260",
+        "name": "BUDGET SAUDI",
+        "shariaCompliant": true,
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "4261",
+        "name": "THEEB",
+        "shariaCompliant": true,
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "4262",
+        "name": "LUMI",
+        "shariaCompliant": true,
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "4263",
+        "name": "SAL",
+        "shariaCompliant": "mixed",
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "4264",
+        "name": "FLYNAS",
+        "shariaCompliant": true,
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "4265",
+        "name": "CHERRY",
+        "shariaCompliant": null,
+        "sector": "Transportation"
+    },
+    {
+        "ticker": "1213",
+        "name": "NASEEJ",
+        "shariaCompliant": false,
+        "sector": "Consumer Durables & Apparel"
+    },
+    {
+        "ticker": "2130",
+        "name": "SIDC",
+        "shariaCompliant": true,
+        "sector": "Consumer Durables & Apparel"
+    },
+    {
+        "ticker": "2340",
+        "name": "ARTEX",
+        "shariaCompliant": true,
+        "sector": "Consumer Durables & Apparel"
+    },
+    {
+        "ticker": "4011",
+        "name": "LAZURDE",
+        "shariaCompliant": true,
+        "sector": "Consumer Durables & Apparel"
+    },
+    {
+        "ticker": "4012",
+        "name": "ALASEEL",
+        "shariaCompliant": true,
+        "sector": "Consumer Durables & Apparel"
+    },
+    {
+        "ticker": "1810",
+        "name": "SEERA",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "1820",
+        "name": "BAAN",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "1830",
+        "name": "LEEJAM SPORTS",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "4090",
+        "name": "TAIBA",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "4170",
+        "name": "TECO",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "4250",
+        "name": "JABAL OMAR",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "4290",
+        "name": "ALKHALEEJ TRNG",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "4291",
+        "name": "NCLE",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "4292",
+        "name": "ATAA",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6002",
+        "name": "HERFY FOODS",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6012",
+        "name": "RAYDAN",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6013",
+        "name": "DWF",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6014",
+        "name": "ALAMAR",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6015",
+        "name": "AMERICANA",
+        "shariaCompliant": "mixed",
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6016",
+        "name": "BURGERIZZR",
+        "shariaCompliant": true,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6017",
+        "name": "JAHEZ",
+        "shariaCompliant": false,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6018",
+        "name": "SPORT CLUBS",
+        "shariaCompliant": "mixed",
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6019",
+        "name": "ALMASAR ALSHAMIL",
+        "shariaCompliant": null,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "6022",
+        "name": "ARMAH",
+        "shariaCompliant": null,
+        "sector": "Consumer Services"
+    },
+    {
+        "ticker": "4070",
+        "name": "TAPRCO",
+        "shariaCompliant": "mixed",
+        "sector": "Media and Entertainment"
+    },
+    {
+        "ticker": "4071",
+        "name": "ALARABIA",
+        "shariaCompliant": true,
+        "sector": "Media and Entertainment"
+    },
+    {
+        "ticker": "4072",
+        "name": "MBC GROUP",
+        "shariaCompliant": false,
+        "sector": "Media and Entertainment"
+    },
+    {
+        "ticker": "4210",
+        "name": "SRMG",
+        "shariaCompliant": false,
+        "sector": "Media and Entertainment"
+    },
+    {
+        "ticker": "4003",
+        "name": "EXTRA",
+        "shariaCompliant": "mixed",
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4008",
+        "name": "SACO",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4050",
+        "name": "SASCO",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4051",
+        "name": "BAAZEEM",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4180",
+        "name": "FITAIHI GROUP",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4190",
+        "name": "JARIR",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4191",
+        "name": "ABO MOATI",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4192",
+        "name": "ALSAIF GALLERY",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4193",
+        "name": "NICE ONE",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4194",
+        "name": "BUILD STATION",
+        "shariaCompliant": null,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4200",
+        "name": "ALDREES",
+        "shariaCompliant": true,
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4240",
+        "name": "CENOMI RETAIL",
+        "shariaCompliant": "mixed",
+        "sector": "Consumer Discretionary Distribution & Retail"
+    },
+    {
+        "ticker": "4001",
+        "name": "A.OTHAIM MARKET",
+        "shariaCompliant": true,
+        "sector": "Consumer Staples Distribution & Retail"
+    },
+    {
+        "ticker": "4006",
+        "name": "FARM SUPERSTORES",
+        "shariaCompliant": "mixed",
+        "sector": "Consumer Staples Distribution & Retail"
+    },
+    {
+        "ticker": "4061",
+        "name": "ANAAM HOLDING",
+        "shariaCompliant": true,
+        "sector": "Consumer Staples Distribution & Retail"
+    },
+    {
+        "ticker": "4160",
+        "name": "THIMAR",
+        "shariaCompliant": true,
+        "sector": "Consumer Staples Distribution & Retail"
+    },
+    {
+        "ticker": "4161",
+        "name": "BINDAWOOD",
+        "shariaCompliant": true,
+        "sector": "Consumer Staples Distribution & Retail"
+    },
+    {
+        "ticker": "4162",
+        "name": "ALMUNAJEM",
+        "shariaCompliant": true,
+        "sector": "Consumer Staples Distribution & Retail"
+    },
+    {
+        "ticker": "4163",
+        "name": "ALDAWAA",
+        "shariaCompliant": true,
+        "sector": "Consumer Staples Distribution & Retail"
+    },
+    {
+        "ticker": "4164",
+        "name": "NAHDI",
+        "shariaCompliant": true,
+        "sector": "Consumer Staples Distribution & Retail"
+    },
+    {
+        "ticker": "2050",
+        "name": "SAVOLA GROUP",
+        "shariaCompliant": "mixed",
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2100",
+        "name": "WAFRAH",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2140",
+        "name": "AYYAN",
+        "shariaCompliant": "mixed",
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2270",
+        "name": "SADAFCO",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2280",
+        "name": "ALMARAI",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2281",
+        "name": "TANMIAH",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2282",
+        "name": "NAQI",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2283",
+        "name": "FIRST MILLS",
+        "shariaCompliant": "mixed",
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2284",
+        "name": "MODERN MILLS",
+        "shariaCompliant": "mixed",
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2285",
+        "name": "ARABIAN MILLS",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2286",
+        "name": "FOURTH MILLING",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2287",
+        "name": "ENTAJ",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "2288",
+        "name": "NOFOTH",
+        "shariaCompliant": null,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "4080",
+        "name": "SINAD HOLDING",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "6001",
+        "name": "HB",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "6010",
+        "name": "NADEC",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "6020",
+        "name": "GACO",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "6040",
+        "name": "TADCO",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "6050",
+        "name": "SFICO",
+        "shariaCompliant": false,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "6060",
+        "name": "SHARQIYAH DEV",
+        "shariaCompliant": false,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "6070",
+        "name": "ALJOUF",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "6090",
+        "name": "JAZADCO",
+        "shariaCompliant": true,
+        "sector": "Food & Beverages"
+    },
+    {
+        "ticker": "4165",
+        "name": "ALMAJED OUD",
+        "shariaCompliant": true,
+        "sector": "Household & Personal Products"
+    },
+    {
+        "ticker": "2230",
+        "name": "CHEMICAL",
+        "shariaCompliant": true,
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4002",
+        "name": "MOUWASAT",
+        "shariaCompliant": "mixed",
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4004",
+        "name": "DALLAH HEALTH",
+        "shariaCompliant": true,
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4005",
+        "name": "CARE",
+        "shariaCompliant": "mixed",
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4007",
+        "name": "ALHAMMADI",
+        "shariaCompliant": "mixed",
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4009",
+        "name": "SAUDI GERMAN HEALTH",
+        "shariaCompliant": "mixed",
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4013",
+        "name": "SULAIMAN ALHABIB",
+        "shariaCompliant": true,
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4014",
+        "name": "EQUIPMENT HOUSE",
+        "shariaCompliant": true,
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4017",
+        "name": "FAKEEH CARE",
+        "shariaCompliant": "mixed",
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4018",
+        "name": "ALMOOSA",
+        "shariaCompliant": false,
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4019",
+        "name": "SMC HEALTHCARE",
+        "shariaCompliant": "mixed",
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "4021",
+        "name": "CMCER",
+        "shariaCompliant": null,
+        "sector": "Health Care Equipment & Svc"
+    },
+    {
+        "ticker": "2070",
+        "name": "SPIMACO",
+        "shariaCompliant": "mixed",
+        "sector": "Pharma, Biotech & Life Science"
+    },
+    {
+        "ticker": "4015",
+        "name": "JAMJOOM PHARMA",
+        "shariaCompliant": "mixed",
+        "sector": "Pharma, Biotech & Life Science"
+    },
+    {
+        "ticker": "4016",
+        "name": "AVALON PHARMA",
+        "shariaCompliant": true,
+        "sector": "Pharma, Biotech & Life Science"
+    },
+    {
+        "ticker": "1010",
+        "name": "RIBL",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1020",
+        "name": "BJAZ",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1030",
+        "name": "SAIB",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1050",
+        "name": "BSF",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1060",
+        "name": "SAB",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1080",
+        "name": "ANB",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1120",
+        "name": "ALRAJHI",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1140",
+        "name": "ALBILAD",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1150",
+        "name": "ALINMA",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1180",
+        "name": "SNB",
+        "shariaCompliant": null,
+        "sector": "Banks"
+    },
+    {
+        "ticker": "1111",
+        "name": "TADAWUL GROUP",
+        "shariaCompliant": "mixed",
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "1182",
+        "name": "AMLAK",
+        "shariaCompliant": true,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "1183",
+        "name": "SHL",
+        "shariaCompliant": true,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "2120",
+        "name": "SAIC",
+        "shariaCompliant": true,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "4081",
+        "name": "NAYIFAT",
+        "shariaCompliant": true,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "4082",
+        "name": "MRNA",
+        "shariaCompliant": true,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "4083",
+        "name": "TASHEEL",
+        "shariaCompliant": true,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "4084",
+        "name": "DERAYAH",
+        "shariaCompliant": false,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "4130",
+        "name": "SAUDI DARB",
+        "shariaCompliant": true,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "4280",
+        "name": "KINGDOM",
+        "shariaCompliant": false,
+        "sector": "Financial Services"
+    },
+    {
+        "ticker": "8010",
+        "name": "TAWUNIYA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8012",
+        "name": "JAZIRA TAKAFUL",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8020",
+        "name": "MALATH INSURANCE",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8030",
+        "name": "MEDGULF",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8040",
+        "name": "MUTAKAMELA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8050",
+        "name": "SALAMA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8060",
+        "name": "WALAA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8070",
+        "name": "ARABIAN SHIELD",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8100",
+        "name": "SAICO",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8120",
+        "name": "GULF UNION ALAHLIA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8150",
+        "name": "ACIG",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8160",
+        "name": "AICC",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8170",
+        "name": "ALETIHAD",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8180",
+        "name": "ALSAGR INSURANCE",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8190",
+        "name": "UCA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8200",
+        "name": "SAUDI RE",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8210",
+        "name": "BUPA ARABIA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8230",
+        "name": "ALRAJHI TAKAFUL",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8240",
+        "name": "CHUBB",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8250",
+        "name": "GIG",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8260",
+        "name": "GULF GENERAL",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8280",
+        "name": "LIVA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8300",
+        "name": "WATANIYA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8310",
+        "name": "AMANA INSURANCE",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8311",
+        "name": "ENAYA",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "8313",
+        "name": "RASAN",
+        "shariaCompliant": null,
+        "sector": "Insurance"
+    },
+    {
+        "ticker": "7200",
+        "name": "MIS",
+        "shariaCompliant": "mixed",
+        "sector": "Software & Services"
+    },
+    {
+        "ticker": "7201",
+        "name": "ARAB SEA",
+        "shariaCompliant": "mixed",
+        "sector": "Software & Services"
+    },
+    {
+        "ticker": "7202",
+        "name": "SOLUTIONS",
+        "shariaCompliant": true,
+        "sector": "Software & Services"
+    },
+    {
+        "ticker": "7203",
+        "name": "ELM",
+        "shariaCompliant": true,
+        "sector": "Software & Services"
+    },
+    {
+        "ticker": "7204",
+        "name": "2P",
+        "shariaCompliant": true,
+        "sector": "Software & Services"
+    },
+    {
+        "ticker": "7205",
+        "name": "DBS",
+        "shariaCompliant": null,
+        "sector": "Software & Services"
+    },
+    {
+        "ticker": "7211",
+        "name": "AZM",
+        "shariaCompliant": true,
+        "sector": "Software & Services"
+    },
+    {
+        "ticker": "7010",
+        "name": "STC",
+        "shariaCompliant": true,
+        "sector": "Telecommunication Services"
+    },
+    {
+        "ticker": "7020",
+        "name": "ETIHAD ETISALAT",
+        "shariaCompliant": true,
+        "sector": "Telecommunication Services"
+    },
+    {
+        "ticker": "7030",
+        "name": "ZAIN KSA",
+        "shariaCompliant": "mixed",
+        "sector": "Telecommunication Services"
+    },
+    {
+        "ticker": "7040",
+        "name": "GO TELECOM",
+        "shariaCompliant": true,
+        "sector": "Telecommunication Services"
+    },
+    {
+        "ticker": "2080",
+        "name": "GASCO HOLDING",
+        "shariaCompliant": true,
+        "sector": "Utilities"
+    },
+    {
+        "ticker": "2081",
+        "name": "AWPT",
+        "shariaCompliant": true,
+        "sector": "Utilities"
+    },
+    {
+        "ticker": "2082",
+        "name": "ACWA",
+        "shariaCompliant": false,
+        "sector": "Utilities"
+    },
+    {
+        "ticker": "2083",
+        "name": "MARAFIQ",
+        "shariaCompliant": true,
+        "sector": "Utilities"
+    },
+    {
+        "ticker": "2084",
+        "name": "MIAHONA",
+        "shariaCompliant": "mixed",
+        "sector": "Utilities"
+    },
+    {
+        "ticker": "5110",
+        "name": "SAUDI ENERGY",
+        "shariaCompliant": "mixed",
+        "sector": "Utilities"
+    },
+    {
+        "ticker": "4330",
+        "name": "RIYAD REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4331",
+        "name": "ALJAZIRA REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4332",
+        "name": "JADWA REIT ALHARAMAIN",
+        "shariaCompliant": null,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4333",
+        "name": "TALEEM REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4334",
+        "name": "AL MAATHER REIT",
+        "shariaCompliant": false,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4335",
+        "name": "MUSHARAKA REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4336",
+        "name": "MULKIA REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4337",
+        "name": "AL AZIZIAH REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4338",
+        "name": "ALAHLI REIT 1",
+        "shariaCompliant": null,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4339",
+        "name": "DERAYAH REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4340",
+        "name": "AL RAJHI REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4342",
+        "name": "JADWA REIT SAUDI",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4344",
+        "name": "SEDCO CAPITAL REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4345",
+        "name": "ALINMA RETAIL REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4346",
+        "name": "MEFIC REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4347",
+        "name": "BONYAN REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4348",
+        "name": "ALKHABEER REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4349",
+        "name": "ALINMA HOSPITALITY REIT",
+        "shariaCompliant": true,
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4350",
+        "name": "ALISTITHMAR REIT",
+        "shariaCompliant": "mixed",
+        "sector": "REITs"
+    },
+    {
+        "ticker": "4020",
+        "name": "ALAKARIA",
+        "shariaCompliant": "mixed",
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4100",
+        "name": "MCDC",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4150",
+        "name": "ARDCO",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4220",
+        "name": "EMAAR EC",
+        "shariaCompliant": false,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4230",
+        "name": "RED SEA",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4300",
+        "name": "DAR ALARKAN",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4310",
+        "name": "KEC",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4320",
+        "name": "ALANDALUS",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4321",
+        "name": "CENOMI CENTERS",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4322",
+        "name": "RETAL",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4323",
+        "name": "SUMOU",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4324",
+        "name": "BANAN",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4325",
+        "name": "MASAR",
+        "shariaCompliant": true,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4326",
+        "name": "ALMAJDIAH",
+        "shariaCompliant": null,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4327",
+        "name": "ALRAMZ",
+        "shariaCompliant": null,
+        "sector": "Real Estate Mgmt & Dev't"
+    },
+    {
+        "ticker": "4328",
+        "name": "LADUN",
+        "shariaCompliant": null,
+        "sector": "Real Estate Mgmt & Dev't"
+    }
 ]
