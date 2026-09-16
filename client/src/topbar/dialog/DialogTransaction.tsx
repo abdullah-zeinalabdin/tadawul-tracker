@@ -1,4 +1,4 @@
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Divider, TextField, Typography, Stack, InputAdornment } from "@mui/material";
+import { Autocomplete, Dialog, DialogTitle, DialogContent, DialogActions, Button, Divider, TextField, Typography, Stack, InputAdornment } from "@mui/material";
 import BuySellToggle from "./BuySellToggle";
 import { hideNumberFieldSpinner, numberStyles } from "../../styles/sxStyles";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
@@ -8,6 +8,8 @@ import { useState } from "react";
 import type { Dayjs } from "dayjs";
 import { useTransactions } from "../../context/useTransactions";
 import { usePositions } from "../../context/usePositions";
+import tickers from "../../data/tickers.json";
+
 interface TransactionForm {
     side: "buy" | "sell",
     ticker: string,
@@ -77,11 +79,17 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                 <BuySellToggle side={transactionDetails.side} toggleHandler={toggleHandler} />
                 <Stack spacing={2}>
                     <Typography variant="h3">Stock Ticker</Typography>
-                    <TextField 
-                    value={transactionDetails.ticker} 
-                    onChange={(e) => {setTransactionDetails({...transactionDetails, ticker: e.target.value})}}
-                    variant="outlined" 
-                    slotProps={{ htmlInput: { maxLength: 4 } }}
+                    <Autocomplete
+                        options={tickers}
+                        getOptionLabel={(option) => `${option.ticker} - ${option.name}`}
+                        filterOptions={(options, { inputValue }) =>
+                            options.filter((option) => option.ticker.startsWith(inputValue))
+                        }
+                        value={tickers.find((t) => t.ticker === transactionDetails.ticker) ?? null}
+                        onChange={(_, newValue) => {
+                            setTransactionDetails({ ...transactionDetails, ticker: newValue?.ticker ?? "" });
+                        }}
+                        renderInput={(params) => <TextField {...params} variant="outlined" />}
                     />
                 </Stack>
                 <Stack spacing={2}>
