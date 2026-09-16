@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import type { SnapshotData } from "../../context/useSnapshots";
 
 export interface ChartData {
@@ -13,7 +14,7 @@ export const deriveChartData = (snapshots: SnapshotData[]): ChartData => {
 
     const baselineTasi = snapshots[0].tasiValue;
 
-    const dates = snapshots.map((s) => s.date);
+    const dates = snapshots.map((s) => dayjs(s.date).format("MMM D"));
 
     const myPerformance = snapshots.map((s) => {
         return (s.unrealizedPL / s.totalCostBasis) * 100;

@@ -10,7 +10,8 @@ export default function PerformanceChart({ chartData }: ChartDataProps) {
             borderColor: '#222222',
             textStyle: {
                 color: '#e2e8f0'
-            }
+            },
+            valueFormatter: (value: number) => `${value.toFixed(2)}%`
         },
         legend: {
             data: ['Your Performance', 'TASI'],
