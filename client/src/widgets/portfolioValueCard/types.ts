@@ -5,5 +5,9 @@ export interface AllocationItem  {
 }
 
 export interface AllocationBarProps {
-    allocation: AllocationItem[]
+    allocationData: AllocationItem[]
+}
+
+export interface AllocationLegendProps extends AllocationBarProps {
+    portfolioValue: number,
 }

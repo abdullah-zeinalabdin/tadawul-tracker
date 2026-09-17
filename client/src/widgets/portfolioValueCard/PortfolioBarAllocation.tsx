@@ -1,7 +1,7 @@
 import { Stack, Typography, Box } from "@mui/material";
 import type { AllocationBarProps } from "./types";
 
-export default function PortfolioBarAllocation({ allocation }: AllocationBarProps) {
+export default function PortfolioBarAllocation({ allocationData }: AllocationBarProps) {
     return (
         <>
             <Typography variant="h3">
@@ -9,7 +9,7 @@ export default function PortfolioBarAllocation({ allocation }: AllocationBarProp
             </Typography>
             <Stack direction="row" sx={{ height: "25px", borderRadius: "4px", overflow: "hidden", gap: "4px" }}>
                 {
-                allocation.map((item) => (
+                allocationData.map((item) => (
                     <Box 
                         key={item.label} 
                         sx={{ width: `${item.percent}%`,backgroundColor: item.color, borderRadius: "2px",}} 

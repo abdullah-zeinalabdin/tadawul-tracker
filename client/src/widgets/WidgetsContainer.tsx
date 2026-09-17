@@ -10,6 +10,7 @@ import type { AssetsPerformanceItem } from "./assetsPerformance/types";
 import type { DailyPerformanceItem } from "./dailyPerformance/types";
 import { useSnapshots } from "../context/useSnapshots";
 import { deriveChartData } from "./performanceChart/deriveChartData";
+import { deriveAllocation } from "./portfolioValueCard/deriveAllocation";
 
 export default function WidgetsContainer() {
     const positions = usePositions();
@@ -24,6 +25,7 @@ export default function WidgetsContainer() {
             return acc + p.shares * (prices[p.ticker]?.price ?? p.avgCost);
         }, 0);
     }, [positions, prices]);
+
     const rows: AssetsPerformanceItem[] = positions.map((position) => {
         const priceData = prices[position.ticker];
         const currentPrice = priceData?.price ?? position.avgCost;
@@ -50,11 +52,12 @@ export default function WidgetsContainer() {
         }
     });
 
+    const allocationData = useMemo(() => deriveAllocation({ positions, prices }), [positions, prices]);
 
     return(
         <Grid container spacing={3}>
             <Grid size={4}>
-                <PortfolioValueCard portfolioValue={portfolioValue}/>
+                <PortfolioValueCard portfolioValue={portfolioValue} allocationData={allocationData}/>
             </Grid>
             <Grid size={8}>
                 <Stack>

@@ -1,6 +1,6 @@
 import type { Transaction } from "./types";
 
-interface Position {
+export interface Position {
     ticker: string,
     shares: number,
     avgCost: number,

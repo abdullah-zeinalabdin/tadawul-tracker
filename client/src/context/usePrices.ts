@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-interface TickerData {
+export interface TickerData {
     name_en: string,
     price: number,
     change: number,

@@ -4,7 +4,7 @@ import { useAuth } from "../../context/Authentication/useAuth";
 import { useNavigate } from "react-router-dom";
 import EmailField from "../loginPage/EmailField";
 import PasswordField from "../loginPage/PasswordField";
-import type { Creds, CredsType } from "../loginPage/LoginPage";
+import type { Creds, CredsType } from "../../context/Authentication/AuthContext";
 import { credsFormStyles, credsPageStyles } from "../../styles/sxStyles";
 
 export default function RegisterPage() {

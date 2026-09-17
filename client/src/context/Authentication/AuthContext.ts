@@ -7,6 +7,13 @@ interface AuthContextType {
     logout: () => void,
     register: ({ email, password }: RegisterProps) => Promise<void>,
     loading: boolean,
+};
+
+export interface Creds {
+    email: string,
+    password: string,
 }
+
+export type CredsType = "email" | "password";
 
 export const AuthContext = createContext<AuthContextType | null>(null);

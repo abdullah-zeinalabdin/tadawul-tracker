@@ -5,14 +5,7 @@ import { useNavigate } from "react-router-dom";
 import PasswordField from "./PasswordField";
 import EmailField from "./EmailField";
 import { credsFormStyles, credsPageStyles } from "../../styles/sxStyles";
-
-
-export interface Creds {
-    email: string,
-    password: string,
-}
-
-export type CredsType = "email" | "password";
+import type { Creds, CredsType } from "../../context/Authentication/AuthContext";
 
 export default function LoginPage() {
     const [creds, setCreds] = useState<Creds>({

@@ -132,7 +132,7 @@ export const pillIndicator = (theme: Theme, isPositive: boolean) => ({
 
 export const allocationRowStyles = {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "space-between",
     marginTop: "20px",
 };
