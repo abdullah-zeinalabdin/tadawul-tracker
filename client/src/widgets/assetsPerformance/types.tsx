@@ -9,3 +9,6 @@ export interface AssetsPerformanceItem {
 export interface AssetsPerformanceProps {
     rows: AssetsPerformanceItem[],
 }
+
+export type SortColumn = "weight" | "gain" | "contribution";
+export type SortDirection = "asc" | "desc";
