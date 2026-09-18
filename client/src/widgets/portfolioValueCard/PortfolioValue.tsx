@@ -1,12 +1,11 @@
 import { Stack, Typography } from "@mui/material";
-import { numberStyles, pillIndicator } from "../../styles/sxStyles";
-import { useTheme } from '@mui/material'
+import { numberStyles } from "../../styles/sxStyles";
+import PercentPill from "../../shared/PercentPill";
 
 interface Props {
     portfolioValue: number,
 }
 export default function PortfolioValue( {portfolioValue}: Props ) {
-    const theme = useTheme();
     const percentageHolder = -0.5;
     return (
         <Stack spacing={1}>
@@ -14,9 +13,7 @@ export default function PortfolioValue( {portfolioValue}: Props ) {
                 {(portfolioValue).toFixed(2)} SAR
             </Typography>
             <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-                <Typography variant="caption" sx={ [numberStyles, pillIndicator(theme, percentageHolder >= 0 )] }>
-                    { percentageHolder >= 0 ? "+" : ""}{percentageHolder}%
-                </Typography>
+                <PercentPill value={percentageHolder} />
                 <Typography variant="caption" sx={numberStyles}>
                     +$4855.23 This Month 
                 </Typography>

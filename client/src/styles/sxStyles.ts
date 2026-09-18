@@ -122,13 +122,22 @@ export const widgetsBaseStyles = (theme: Theme) => ({
     minHeight: "500px",
 });
 
-export const pillIndicator = (theme: Theme, isPositive: boolean) => ({
-    backgroundColor:  alpha(isPositive ? theme.palette.success.main : theme.palette.error.main, 0.4),
-    padding: "2px 10px",
-    borderRadius: "6px",
-    color: "white",
-    display: "inline-block",
-});
+type PillStatus = "positive" | "negative" | "neutral";
+
+export const pillIndicator = (theme: Theme, status: PillStatus) => {
+    const color = status === "positive" ? theme.palette.success.main :
+    status === "negative" ? theme.palette.error.main :
+    "#6B7280";
+
+    return {
+        backgroundColor: status === "neutral" ? alpha(color, 0.2) : alpha(color, 0.4),
+        padding: "2px 10px",
+        borderRadius: "6px",
+        color: color,
+        alignItems: "center",
+        gap: "5px",
+    };
+};
 
 export const allocationRowStyles = {
     flexDirection: "row",

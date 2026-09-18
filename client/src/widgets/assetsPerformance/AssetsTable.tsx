@@ -6,11 +6,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Stack from '@mui/material/Stack';
 import type { AssetsPerformanceProps } from './types';
-import { numberStyles, pillIndicator } from '../../styles/sxStyles';
-import { Typography, useTheme } from '@mui/material';
+import { numberStyles } from '../../styles/sxStyles';
+import PercentPill from '../../shared/PercentPill';
 
 export default function AssetsTable({ rows }: AssetsPerformanceProps ) {
-    const theme = useTheme();
     return (
         <Stack>
             <TableContainer>
@@ -35,9 +34,7 @@ export default function AssetsTable({ rows }: AssetsPerformanceProps ) {
                                 </TableCell>
                                 <TableCell sx={numberStyles}>{(row.weight).toFixed(2)}%</TableCell>
                                 <TableCell>
-                                    <Typography align="center" sx={ [numberStyles, pillIndicator(theme, row.gain >= 0)] }>
-                                        { row.gain >= 0 ? "+" : "" }{ (row.gain).toFixed(2) }%
-                                    </Typography>
+                                    <PercentPill value={row.gain}/>
                                 </TableCell>
                                 <TableCell  sx={numberStyles}>{(row.contribution).toFixed(2)} SAR</TableCell>
                             </TableRow>
