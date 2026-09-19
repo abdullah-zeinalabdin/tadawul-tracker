@@ -20,7 +20,10 @@ export default function DailyPerformanceGrid({ dailyPerformance }: DailyPerforma
                             <PercentPill value={item.priceChangePercent}/>
                         </Stack>
                         <Stack>
-                            <Typography sx={numberStyles}>{item.todayPrice} SAR</Typography>
+                            <Typography sx={numberStyles}>
+                                <span style={{ fontSize: "1.3em" }}>{"\u20C1 "}</span>
+                                {item.todayPrice}
+                            </Typography>
                         </Stack>
                     </Stack>
                 )

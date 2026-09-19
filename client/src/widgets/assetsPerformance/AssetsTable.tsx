@@ -78,7 +78,10 @@ export default function AssetsTable({ rows }: AssetsPerformanceProps ) {
                                 <TableCell>
                                     <PercentPill value={row.gain}/>
                                 </TableCell>
-                                <TableCell  sx={numberStyles}>{(row.contribution).toFixed(2)} SAR</TableCell>
+                                <TableCell sx={numberStyles}>
+                                    <span style={{ fontSize: "1.3em" }}>{"\u20C1 "}</span>
+                                    {(row.contribution).toFixed(2)} 
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

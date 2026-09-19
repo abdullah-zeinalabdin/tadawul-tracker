@@ -116,7 +116,9 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                         fullWidth
                         slotProps={{
                             input: {
-                                endAdornment: <InputAdornment position="end">SAR</InputAdornment>,
+                                endAdornment: <InputAdornment position="end">
+                                    <span style={{ fontSize: "1.3em" }}>{"\u20C1 "}</span>
+                                </InputAdornment>,
                             },
                             htmlInput: {
                                 step: "0.01",
@@ -125,7 +127,9 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                         }}
                         sx={hideNumberFieldSpinner}
                     />
-                    <Typography variant="caption" sx={numberStyles}>The Total is: {overallPrice} SAR</Typography>
+                    <Typography variant="caption" sx={numberStyles}>
+                        The Total is: <span style={{ fontSize: "1.3em" }}>{"\u20C1 "}</span> {overallPrice.toFixed(2)}
+                    </Typography>
                 </Stack>
                 <Stack spacing={2}>
                     <Typography variant="h3">Transaction Date</Typography>

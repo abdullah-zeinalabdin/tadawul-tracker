@@ -40,7 +40,8 @@ export default function PortfolioLegendAllocation({ allocationData, portfolioVal
                             </Typography>
                         </Stack>
                         <Typography variant="body2" sx={numberStyles}>
-                            {value.toFixed(2)} SAR
+                            <span style={{ fontSize: "1.3em" }}>{"\u20C1 "}</span>
+                            {value.toFixed(2)}
                         </Typography>
                     </Stack>
                 )})

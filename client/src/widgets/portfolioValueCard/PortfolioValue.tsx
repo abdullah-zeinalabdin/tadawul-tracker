@@ -10,12 +10,13 @@ export default function PortfolioValue( {portfolioValue}: Props ) {
     return (
         <Stack spacing={1}>
             <Typography variant="h1" sx={numberStyles}>
-                {(portfolioValue).toFixed(2)} SAR
+                <span style={{ fontSize: "1.3em" }}>{"\u20C1 "}</span>
+                {(portfolioValue).toFixed(2)}
             </Typography>
             <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
                 <PercentPill value={percentageHolder} />
                 <Typography variant="caption" sx={numberStyles}>
-                    +$4855.23 This Month 
+                    + <span style={{ fontSize: "1em" }}>{"\u20C1 "}</span>4855.23 This Month 
                 </Typography>
             </Stack>
         </Stack>
