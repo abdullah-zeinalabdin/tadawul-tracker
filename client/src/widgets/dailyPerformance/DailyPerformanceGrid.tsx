@@ -3,6 +3,8 @@ import type { DailyPerformanceProps } from "./types";
 import { numberStyles, todaysPerformanceCardStyles } from "../../styles/sxStyles";
 import { useTheme } from "@mui/material";
 import PercentPill from "../../shared/PercentPill";
+import CompanyLogo from "../../shared/CompanyLogo";
+
 export default function DailyPerformanceGrid({ dailyPerformance }: DailyPerformanceProps) {
     const theme = useTheme();
     return (
@@ -11,7 +13,10 @@ export default function DailyPerformanceGrid({ dailyPerformance }: DailyPerforma
                 return (
                     <Stack key={item.ticker} sx={ todaysPerformanceCardStyles(theme) } spacing={2}>
                         <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
-                            <Typography>{item.ticker}</Typography>
+                            <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+                                <CompanyLogo domain={item.domain ?? ""} ticker={item.ticker} />
+                                <Typography>{item.ticker}</Typography>
+                            </Stack>
                             <PercentPill value={item.priceChangePercent}/>
                         </Stack>
                         <Stack>

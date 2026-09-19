@@ -11,6 +11,7 @@ import type { DailyPerformanceItem } from "./dailyPerformance/types";
 import { useSnapshots } from "../context/useSnapshots";
 import { deriveChartData } from "./performanceChart/deriveChartData";
 import { deriveAllocation } from "./portfolioValueCard/deriveAllocation";
+import tickersData from "../data/tickers.json"
 
 export default function WidgetsContainer() {
     const positions = usePositions();
@@ -30,10 +31,12 @@ export default function WidgetsContainer() {
         const priceData = prices[position.ticker];
         const currentPrice = priceData?.price ?? position.avgCost;
         const marketValue = currentPrice * position.shares;
+        const tickerDetails = tickersData.find((t) => t.ticker === position.ticker);
     
         return {
             code: position.ticker,
             name: prices[position.ticker]?.name_en ?? position.ticker,
+            domain: tickerDetails?.domain ?? null,
             weight: portfolioValue > 0 ? (marketValue / portfolioValue) * 100 : 0,
             gain: priceData ? ((currentPrice - position.avgCost) / position.avgCost) * 100 : 0,
             contribution: marketValue,
@@ -43,9 +46,11 @@ export default function WidgetsContainer() {
     const dailyPerformance: DailyPerformanceItem[] = positions.map((position) => {
         const priceData = prices[position.ticker];
         const currentPrice = priceData?.price ?? position.avgCost;
+        const tickerDetails = tickersData.find((t) => t.ticker === position.ticker);
 
         return {
             ticker: position.ticker,
+            domain: tickerDetails?.domain ?? null,
             todayPrice: currentPrice,
             priceChangePercent: Number(priceData?.change_percent ?? 0),
             change: Number(priceData?.change ?? 0),

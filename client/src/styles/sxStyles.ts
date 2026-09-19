@@ -149,7 +149,7 @@ export const allocationRowStyles = {
 export const todaysPerformanceCardStyles = (theme: Theme) =>  ({
     padding: "20px", 
     borderRadius: "8px",
-    minWidth: "200px",
+    minWidth: "300px",
     backgroundColor: theme.palette.background.default,
 });
 /* === Widgets === */

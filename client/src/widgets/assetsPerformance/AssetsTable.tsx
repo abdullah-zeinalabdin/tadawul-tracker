@@ -3,6 +3,7 @@ import type { AssetsPerformanceProps, SortColumn, SortDirection } from './types'
 import { numberStyles } from '../../styles/sxStyles';
 import PercentPill from '../../shared/PercentPill';
 import { useMemo, useState } from 'react';
+import CompanyLogo from '../../shared/CompanyLogo';
 
 export default function AssetsTable({ rows }: AssetsPerformanceProps ) {
     const [sortColumn, setSortColumn] = useState<SortColumn>("weight");
@@ -65,7 +66,10 @@ export default function AssetsTable({ rows }: AssetsPerformanceProps ) {
                         {sortedRows.map((row) => (
                             <TableRow key={row.code}>
                                 <TableCell component="th" scope="row" sx={numberStyles}>
-                                    {row.code}
+                                    <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+                                        <CompanyLogo domain={row.domain ?? ""} ticker={row.code} />
+                                        <span>{row.code}</span>
+                                    </Stack>
                                 </TableCell>
                                 <TableCell component="th" scope="row">
                                     {row.name}

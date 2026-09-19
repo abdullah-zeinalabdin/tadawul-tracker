@@ -1,6 +1,7 @@
 export interface AssetsPerformanceItem {
     code: string,
     name: string,
+    domain: string | null,
     weight: number,
     gain: number,
     contribution: number,

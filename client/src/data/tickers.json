@@ -9,7 +9,8 @@
         "ticker": "2222",
         "name": "SAUDI ARAMCO",
         "shariaCompliant": true,
-        "sector": "Energy"
+        "sector": "Energy",
+        "domain": "aramco.com"
     },
     {
         "ticker": "2380",
@@ -273,7 +274,8 @@
         "ticker": "3030",
         "name": "SAUDI CEMENT",
         "shariaCompliant": true,
-        "sector": "Materials"
+        "sector": "Materials",
+        "domain": "saudicement.com.sa"
     },
     {
         "ticker": "3040",
@@ -483,7 +485,8 @@
         "ticker": "4031",
         "name": "SGS",
         "shariaCompliant": true,
-        "sector": "Transportation"
+        "sector": "Transportation",
+        "domain": "saudiags.com"
     },
     {
         "ticker": "4040",
@@ -519,7 +522,8 @@
         "ticker": "4264",
         "name": "FLYNAS",
         "shariaCompliant": true,
-        "sector": "Transportation"
+        "sector": "Transportation",
+        "domain": "flynas.com"
     },
     {
         "ticker": "4265",
@@ -771,7 +775,8 @@
         "ticker": "4001",
         "name": "A.OTHAIM MARKET",
         "shariaCompliant": true,
-        "sector": "Consumer Staples Distribution & Retail"
+        "sector": "Consumer Staples Distribution & Retail",
+        "domain": "othaimmarkets.com"
     },
     {
         "ticker": "4006",
@@ -813,7 +818,8 @@
         "ticker": "4164",
         "name": "NAHDI",
         "shariaCompliant": true,
-        "sector": "Consumer Staples Distribution & Retail"
+        "sector": "Consumer Staples Distribution & Retail",
+        "domain": "nahdionline.com"
     },
     {
         "ticker": "2050",
@@ -843,7 +849,8 @@
         "ticker": "2280",
         "name": "ALMARAI",
         "shariaCompliant": true,
-        "sector": "Food & Beverages"
+        "sector": "Food & Beverages",
+        "domain": "almarai.com"
     },
     {
         "ticker": "2281",
@@ -993,7 +1000,8 @@
         "ticker": "4013",
         "name": "SULAIMAN ALHABIB",
         "shariaCompliant": true,
-        "sector": "Health Care Equipment & Svc"
+        "sector": "Health Care Equipment & Svc",
+        "domain": "drsulaimanalhabib.ae"
     },
     {
         "ticker": "4014",
@@ -1041,7 +1049,8 @@
         "ticker": "4016",
         "name": "AVALON PHARMA",
         "shariaCompliant": true,
-        "sector": "Pharma, Biotech & Life Science"
+        "sector": "Pharma, Biotech & Life Science",
+        "domain": "avalonpharmaceutical.com"
     },
     {
         "ticker": "1010",
@@ -1095,7 +1104,8 @@
         "ticker": "1150",
         "name": "ALINMA",
         "shariaCompliant": null,
-        "sector": "Banks"
+        "sector": "Banks",
+        "domain": "alinma.com"
     },
     {
         "ticker": "1180",
@@ -1335,7 +1345,8 @@
         "ticker": "7202",
         "name": "SOLUTIONS",
         "shariaCompliant": true,
-        "sector": "Software & Services"
+        "sector": "Software & Services",
+        "domain": "solutions.com.sa"
     },
     {
         "ticker": "7203",
@@ -1365,7 +1376,8 @@
         "ticker": "7010",
         "name": "STC",
         "shariaCompliant": true,
-        "sector": "Telecommunication Services"
+        "sector": "Telecommunication Services",
+        "domain": "stc.com.sa"
     },
     {
         "ticker": "7020",
@@ -1497,13 +1509,15 @@
         "ticker": "4344",
         "name": "SEDCO CAPITAL REIT",
         "shariaCompliant": true,
-        "sector": "REITs"
+        "sector": "REITs",
+        "domain": "sedcocapital.com"
     },
     {
         "ticker": "4345",
         "name": "ALINMA RETAIL REIT",
         "shariaCompliant": true,
-        "sector": "REITs"
+        "sector": "REITs",
+        "domain": "alinma.com"
     },
     {
         "ticker": "4346",
@@ -1515,7 +1529,8 @@
         "ticker": "4347",
         "name": "BONYAN REIT",
         "shariaCompliant": true,
-        "sector": "REITs"
+        "sector": "REITs",
+        "domain": "saudibonyan.com.sa"
     },
     {
         "ticker": "4348",
@@ -1527,7 +1542,8 @@
         "ticker": "4349",
         "name": "ALINMA HOSPITALITY REIT",
         "shariaCompliant": true,
-        "sector": "REITs"
+        "sector": "REITs",
+        "domain": "alinma.com"
     },
     {
         "ticker": "4350",
