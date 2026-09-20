@@ -16,6 +16,7 @@ export const requireAuth = (req, res, next) => {
     }
 
     catch(error) {
+        console.error(error)
         res.status(401).json({error: "Token is invalid or expired"});
     }
 }

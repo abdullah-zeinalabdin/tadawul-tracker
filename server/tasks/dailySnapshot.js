@@ -5,68 +5,73 @@ import { fetchMarketSummary, fetchQuote } from "../services/dataProvider.js";
 import { Snapshot } from "../models/SnapshotModel.js";
 
 export const runDailySnapshot = async() => {
-    const users = await User.find({});
+    try {
+        const users = await User.find({});
 
-    const marketData = await fetchMarketSummary();
-    const tasiValue = marketData.index_value;
-    
-    const date = new Date();
-    date.setHours(0, 0, 0, 0);
+        const marketData = await fetchMarketSummary();
+        const tasiValue = marketData.index_value;
+        
+        const date = new Date();
+        date.setHours(0, 0, 0, 0);
 
-    for(const user of users) {
-        const transactions = await Transaction.find({ userId: user._id });
-        const grouped = transactions.reduce((acc, t) => {
-            if (!acc[t.ticker]) {
-                acc[t.ticker] = { shares: 0, totalCost: 0 };
+        for(const user of users) {
+            const transactions = await Transaction.find({ userId: user._id });
+            const grouped = transactions.reduce((acc, t) => {
+                if (!acc[t.ticker]) {
+                    acc[t.ticker] = { shares: 0, totalCost: 0 };
+                }
+
+                const current = acc[t.ticker];
+
+                if (t.side === "buy") {
+                    current.shares += t.numberOfShares;
+                    current.totalCost += t.numberOfShares * t.PPS;
+                } else {
+                    const avgCost = current.totalCost / current.shares;
+                    current.shares -= t.numberOfShares;
+                    current.totalCost -= t.numberOfShares * avgCost;
+                }
+
+                return acc;
+            }, {});
+
+            const positions = Object.entries(grouped).filter(([, data]) => data.shares !== 0).map(([ticker, data]) => {
+                return {
+                    ticker: ticker,
+                    shares: data.shares,
+                    avgCost: data.totalCost / data.shares,
+                };
+            });
+
+            let unrealizedPL = 0;
+            let totalCostBasis = 0;
+            for (const position of positions) {
+                try {
+                    const priceData = await fetchQuote(position.ticker);
+                    unrealizedPL += (position.shares * (priceData?.price ?? position.avgCost)) - (position.shares * position.avgCost);
+                    totalCostBasis += (position.shares * position.avgCost);
+                }
+                catch(error) {
+                    console.error(`Failed to fetch ${position.ticker} for user ${user._id}`, error);
+                    unrealizedPL += 0;
+                    totalCostBasis += (position.shares * position.avgCost);
+                }
             }
 
-            const current = acc[t.ticker];
-
-            if (t.side === "buy") {
-                current.shares += t.numberOfShares;
-                current.totalCost += t.numberOfShares * t.PPS;
-            } else {
-                const avgCost = current.totalCost / current.shares;
-                current.shares -= t.numberOfShares;
-                current.totalCost -= t.numberOfShares * avgCost;
-            }
-
-            return acc;
-        }, {});
-
-        const positions = Object.entries(grouped).filter(([, data]) => data.shares !== 0).map(([ticker, data]) => {
-            return {
-                ticker: ticker,
-                shares: data.shares,
-                avgCost: data.totalCost / data.shares,
-            };
-        });
-
-        let unrealizedPL = 0;
-        let totalCostBasis = 0;
-        for (const position of positions) {
             try {
-                const priceData = await fetchQuote(position.ticker);
-                unrealizedPL += (position.shares * (priceData?.price ?? position.avgCost)) - (position.shares * position.avgCost);
-                totalCostBasis += (position.shares * position.avgCost);
+                await Snapshot.findOneAndUpdate(
+                    { userId: user._id, date },
+                    { userId: user._id, date, unrealizedPL, totalCostBasis, tasiValue },
+                    { upsert: true, new: true },
+                )
             }
             catch(error) {
-                console.log(`Failed to fetch ${position.ticker} for user ${user._id}`, error);
-                unrealizedPL += 0;
-                totalCostBasis += (position.shares * position.avgCost);
+                console.error(`Failed to save snapshot for user ${user._id}`, error);
             }
         }
-
-        try {
-            await Snapshot.findOneAndUpdate(
-                { userId: user._id, date },
-                { userId: user._id, date, unrealizedPL, totalCostBasis, tasiValue },
-                { upsert: true, new: true },
-            )
-        }
-        catch(error) {
-            console.log(`Failed to save snapshot for user ${user._id}`, error);
-        }
+    }
+    catch(error) {
+        console.error("Daily snapshot job failed entirely:", error);
     }
 }
 

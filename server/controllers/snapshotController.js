@@ -9,6 +9,7 @@ export const getSnapshot = async(req, res) => {
         return res.status(200).json(snapshots);
     }
     catch(error) {
-        return res.status(500).json({ error: error.message });
+        console.error(error);
+        res.status(500).json({error: "Something went wrong, Please try again!"});
     }
 }

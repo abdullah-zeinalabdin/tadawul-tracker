@@ -13,7 +13,7 @@ export const usePrices = (tickers: string[]) => {
 
     const fetchApp = async(link: string): Promise<TickerData | undefined> => {
         try {
-            const response = await fetch(link);
+            const response = await fetch(link, {credentials: "include"});
                 
             if(!response.ok) {
                 throw new Error(`Error! Status: ${response.status}`);

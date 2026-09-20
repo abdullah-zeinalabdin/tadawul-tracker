@@ -11,30 +11,25 @@ export const registerUser = async(req, res) => {
     const { email, password } = req.body;
     try {
         if(!email || !password) {
-            res.status(400).json({error: "Please Fill Both Fields"});
-            return;
+            return res.status(400).json({error: "Please Fill Both Fields"});
         }
 
         
         if(typeof email !== "string" || typeof password !== "string") {
-            res.status(400).json({error: "Please send proper data form of string"});
-            return;
+            return res.status(400).json({error: "Please send proper data form of string"});
         }
 
         if(!validator.isEmail(email)) {
-            res.status(400).json({error: "Wrong Email Format"});
-            return;
+            return res.status(400).json({error: "Wrong Email Format"});
         }
 
         if(!validator.isStrongPassword(password)) {
-            res.status(400).json({error: "Password is not Strong Enough"});
-            return;
+            return res.status(400).json({error: "Password is not Strong Enough"});
         }
 
         const exists = await User.findOne({ email });
         if(exists) {
-            res.status(400).json({error: "Email Already Exists, Try Sign In!"});
-            return;
+            return res.status(400).json({error: "Email Already Exists, Try Sign In!"});
         };
 
         const salt = await bcrypt.genSalt(10);
@@ -46,7 +41,8 @@ export const registerUser = async(req, res) => {
     }
 
     catch(error) {
-        res.status(400).json({error: error.message});
+        console.error(error);
+        res.status(500).json({error: "Something went wrong, Please try again!"});
     }
 };
 
@@ -87,7 +83,8 @@ export const loginUser = async(req, res) => {
         }
     }
     catch(error) {
-        res.status(400).json({error: error.message});
+        console.error(error);
+        res.status(500).json({error: "Something went wrong, Please try again!"});
     }
 }
 
@@ -111,9 +108,10 @@ export const getMe = async(req, res) => {
             return res.status(404).json({error: "User was not found"});
         }
 
-        return res.status(200).json({message: "User is logged in", email: user.email});
+        res.status(200).json({message: "User is logged in", email: user.email});
     }
     catch(error) {
-        res.status(500).json({error: error.message});
+        console.error(error);
+        res.status(500).json({error: "Something went wrong, Please try again!"});
     }
 }
