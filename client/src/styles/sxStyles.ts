@@ -1,5 +1,17 @@
 import { alpha, type Theme } from "@mui/material/styles"
 
+/* Global */
+export const errorAlertStyles = (theme: Theme) => ({
+    border: 0,
+    borderRadius: 0,
+    borderLeft: `5px solid ${theme.palette.error.main}`,
+    display: "flex",
+    alignItems: "center",
+    borderTopLeftRadius: "4px",
+    borderBottomLeftRadius: "4px",
+})
+/* === Global === */
+
 /* App */
 export const mainPageStyles = {
     height: "100vh",

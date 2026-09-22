@@ -6,12 +6,14 @@ import PasswordField from "./PasswordField";
 import EmailField from "./EmailField";
 import { credsFormStyles, credsPageStyles } from "../../styles/sxStyles";
 import type { Creds, CredsType } from "../../context/Authentication/AuthContext";
+import ErrorAlert from "../../shared/ErrorAlert";
 
 export default function LoginPage() {
     const [creds, setCreds] = useState<Creds>({
         email: "",
         password: "",
     });
+    const [loginError, setLoginError] = useState<string | null>(null);
 
     const theme = useTheme();
 
@@ -19,13 +21,19 @@ export default function LoginPage() {
     const navigate = useNavigate();
     const handleSubmit = async() => {
         try {
+            setLoginError(null);
             if(creds.email && creds.password) {
                 await login({ email: creds.email, password: creds.password });
                 navigate("/");
             }
         }
         catch(error) {
-            console.log("Login failed", error);
+            if(error instanceof Error) {
+                setLoginError(error.message);
+            }
+            else {
+                setLoginError("Login Failed");
+            }
         }
     }
 
@@ -46,6 +54,7 @@ export default function LoginPage() {
                             <Typography variant="h3">Password</Typography>
                             <PasswordField password={creds.password} onChange={handleChange}/>
                         </Stack>
+                        <ErrorAlert message={loginError}/>
                         <Stack>
                             <Button variant="contained" onClick={handleSubmit}>Login</Button>
                         </Stack>
