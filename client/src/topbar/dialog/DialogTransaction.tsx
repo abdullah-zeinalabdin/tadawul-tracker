@@ -9,6 +9,8 @@ import type { Dayjs } from "dayjs";
 import { useTransactions } from "../../context/useTransactions";
 import { usePositions } from "../../context/usePositions";
 import tickers from "../../data/tickers.json";
+import dayjs from "dayjs";
+import ErrorAlert from "../../shared/ErrorAlert";
 
 interface TransactionForm {
     side: "buy" | "sell",
@@ -33,29 +35,34 @@ const emptyForm: TransactionForm = {
 
 export default function DialogTransaction({ open, setOpen }: Props) {
     const [transactionDetails, setTransactionDetails] = useState<TransactionForm>(emptyForm);
+    const [formError, setFormError] = useState<string | null>(null);
+
     const { addTransaction } = useTransactions();
     const positions = usePositions();
+
     const toggleHandler = (_e: React.MouseEvent<HTMLElement>, newValue: "buy" | "sell" | null) => {
         if (newValue !== null) {
             setTransactionDetails({ ...transactionDetails, side: newValue })
         }
     }
 
+    const fieldsFilled = 
+        !!transactionDetails.ticker &&
+        Number.isFinite(transactionDetails.numberOfShares) &&
+        Number.isFinite(transactionDetails.PPS) && 
+        dayjs(transactionDetails.date).isValid();
+
     const overallPrice = Number(transactionDetails.numberOfShares) * Number(transactionDetails.PPS) || 0;
+
     const handleSave = () => {
+        setFormError(null);
         const selectedStock = positions.find(position => position.ticker === transactionDetails.ticker);
-        
-        const fieldsFilled = 
-            transactionDetails.ticker &&
-            Number.isFinite(transactionDetails.numberOfShares) &&
-            Number.isFinite(transactionDetails.PPS) && 
-            transactionDetails.date;
 
         const hasEnoughShares = 
             transactionDetails.side === "buy" ||
             (selectedStock !== undefined && selectedStock.shares >= Number(transactionDetails.numberOfShares));
         
-        if (fieldsFilled && hasEnoughShares) {
+        if(hasEnoughShares) {
             addTransaction({
                 side: transactionDetails.side,
                 ticker: transactionDetails.ticker,
@@ -64,11 +71,15 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                 date: transactionDetails.date?.toISOString() ?? new Date().toISOString(),
             });
             setTransactionDetails(emptyForm);
+            setOpen(false);
         }
-        setOpen(false);
+        else {
+            setFormError("You don't have the desired amount to sell");
+        }
     }
     const handleCancel = () => {
-        setTransactionDetails(emptyForm)
+        setFormError(null);
+        setTransactionDetails(emptyForm);
         setOpen(false);
     }
     return (
@@ -141,10 +152,11 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                         />
                     </LocalizationProvider>
                 </Stack>
+                <ErrorAlert message={formError}/>
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleCancel}>Cancel</Button>
-                <Button variant="contained" onClick={handleSave}>Save</Button>
+                <Button variant="contained" onClick={handleSave} disabled={!fieldsFilled}>Save</Button>
             </DialogActions>
         </Dialog>
     )
