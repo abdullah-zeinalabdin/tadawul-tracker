@@ -16,7 +16,7 @@ import tickersData from "../data/tickers.json"
 export default function WidgetsContainer() {
     const positions = usePositions();
     const tickers = useMemo(() => positions.map((p) => p.ticker), [positions]);
-    const prices = usePrices(tickers);
+    const { prices } = usePrices(tickers);
 
     const snapshots = useSnapshots();
     const chartData = useMemo(() => deriveChartData(snapshots), [snapshots]);

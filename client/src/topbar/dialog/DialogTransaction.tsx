@@ -83,11 +83,12 @@ export default function DialogTransaction({ open, setOpen }: Props) {
         setOpen(false);
     }
     return (
-        <Dialog open={open} onClose={() => setOpen(false)} fullWidth={true}>
+        <Dialog open={open}  onClose={handleCancel} fullWidth={true}>
             <DialogTitle >Add Transaction</DialogTitle>
             <Divider sx={{ mb: "20px", borderColor: "#171717" }} variant="middle"/>
             <DialogContent sx={{ display: "flex", flexDirection: "column", gap: "30px"}}>
                 <BuySellToggle side={transactionDetails.side} toggleHandler={toggleHandler} />
+                <ErrorAlert message={formError}/>
                 <Stack spacing={2}>
                     <Typography variant="h3">Stock Ticker</Typography>
                     <Autocomplete
@@ -152,7 +153,6 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                         />
                     </LocalizationProvider>
                 </Stack>
-                <ErrorAlert message={formError}/>
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleCancel}>Cancel</Button>
