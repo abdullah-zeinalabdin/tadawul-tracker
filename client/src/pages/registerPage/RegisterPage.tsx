@@ -1,4 +1,4 @@
-import { Stack, Typography, Button, useTheme } from "@mui/material";
+import { Stack, Typography, Button, useTheme, CircularProgress } from "@mui/material";
 import { useState } from "react";
 import { useAuth } from "../../context/Authentication/useAuth";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ export default function RegisterPage() {
         password: "",
     });
     const [registerError, setRegisterError] = useState<string | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const theme = useTheme();
     
@@ -23,6 +24,7 @@ export default function RegisterPage() {
         try {
             setRegisterError(null);
             if(creds.email && creds.password) {
+                setIsSubmitting(true)
                 await register({ email: creds.email, password: creds.password });
                 navigate("/login");
             }
@@ -34,6 +36,7 @@ export default function RegisterPage() {
             else {
                 setRegisterError("Registration Failed");
             }
+            setIsSubmitting(false);
         }
     }
 
@@ -56,7 +59,12 @@ export default function RegisterPage() {
                         </Stack>
                         <ErrorAlert message={registerError}/>
                         <Stack>
-                            <Button variant="contained" onClick={handleSubmit}>Register</Button>
+                            <Button 
+                            variant="contained" 
+                            onClick={handleSubmit} 
+                            disabled={isSubmitting}
+                            startIcon={isSubmitting ? <CircularProgress size={16} color="inherit" /> : undefined}
+                            >Register</Button>
                         </Stack>
                     </Stack>
             </Stack>

@@ -1,4 +1,4 @@
-import { Autocomplete, Dialog, DialogTitle, DialogContent, DialogActions, Button, Divider, TextField, Typography, Stack, InputAdornment } from "@mui/material";
+import { Autocomplete, Dialog, DialogTitle, DialogContent, DialogActions, Button, Divider, TextField, Typography, Stack, InputAdornment, CircularProgress } from "@mui/material";
 import BuySellToggle from "./BuySellToggle";
 import { hideNumberFieldSpinner, numberStyles } from "../../styles/sxStyles";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
@@ -36,6 +36,7 @@ const emptyForm: TransactionForm = {
 export default function DialogTransaction({ open, setOpen }: Props) {
     const [transactionDetails, setTransactionDetails] = useState<TransactionForm>(emptyForm);
     const [formError, setFormError] = useState<string | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const { addTransaction } = useTransactions();
     const positions = usePositions();
@@ -54,7 +55,8 @@ export default function DialogTransaction({ open, setOpen }: Props) {
 
     const overallPrice = Number(transactionDetails.numberOfShares) * Number(transactionDetails.PPS) || 0;
 
-    const handleSave = () => {
+    const handleSave = async() => {
+        setIsSubmitting(true)
         setFormError(null);
         const selectedStock = positions.find(position => position.ticker === transactionDetails.ticker);
 
@@ -63,7 +65,7 @@ export default function DialogTransaction({ open, setOpen }: Props) {
             (selectedStock !== undefined && selectedStock.shares >= Number(transactionDetails.numberOfShares));
         
         if(hasEnoughShares) {
-            addTransaction({
+            await addTransaction({
                 side: transactionDetails.side,
                 ticker: transactionDetails.ticker,
                 numberOfShares: Number(transactionDetails.numberOfShares),
@@ -71,10 +73,12 @@ export default function DialogTransaction({ open, setOpen }: Props) {
                 date: transactionDetails.date?.toISOString() ?? new Date().toISOString(),
             });
             setTransactionDetails(emptyForm);
+            setIsSubmitting(false);
             setOpen(false);
         }
         else {
             setFormError("You don't have the desired amount to sell");
+            setIsSubmitting(false);
         }
     }
     const handleCancel = () => {
@@ -156,7 +160,12 @@ export default function DialogTransaction({ open, setOpen }: Props) {
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleCancel}>Cancel</Button>
-                <Button variant="contained" onClick={handleSave} disabled={!fieldsFilled}>Save</Button>
+                <Button 
+                variant="contained" 
+                onClick={handleSave} 
+                disabled={!fieldsFilled || isSubmitting}
+                startIcon={isSubmitting ? <CircularProgress size={16} color="inherit" /> : undefined}
+                >Save</Button>
             </DialogActions>
         </Dialog>
     )

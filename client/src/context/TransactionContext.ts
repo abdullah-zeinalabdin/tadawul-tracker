@@ -3,7 +3,7 @@ import type { Transaction } from "./types";
 
 export interface TransactionContextType {
     transactions: Transaction[],
-    addTransaction: (t: Transaction) => void
+    addTransaction: (t: Transaction) => Promise<void>
 }
 
 export const TransactionContext = createContext<TransactionContextType | null>(null)
