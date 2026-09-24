@@ -1,7 +1,7 @@
 import { Stack, Typography, Button, useTheme } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../context/Authentication/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PasswordField from "./PasswordField";
 import EmailField from "./EmailField";
 import { credsFormStyles, credsPageStyles } from "../../styles/sxStyles";
@@ -13,11 +13,14 @@ export default function LoginPage() {
         email: "",
         password: "",
     });
-    const [loginError, setLoginError] = useState<string | null>(null);
+    
+    const location  = useLocation();
+    const message = location?.state?.message ?? null;
+    const [loginError, setLoginError] = useState<string | null>(message);
 
     const theme = useTheme();
 
-    const { login } = useAuth();
+    const { login, clearLogoutMessage } = useAuth();
     const navigate = useNavigate();
     const handleSubmit = async() => {
         try {
@@ -40,6 +43,11 @@ export default function LoginPage() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, type: CredsType) => {
         setCreds({ ...creds, [type]: e.target.value });
     }
+
+    useEffect(() => {
+        clearLogoutMessage();
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <Stack sx={credsPageStyles(theme)}>

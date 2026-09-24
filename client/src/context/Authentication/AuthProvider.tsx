@@ -19,6 +19,7 @@ export interface RegisterProps {
 export const AuthProvider = ( { children }: AuthProviderProps) => {
     const [userData, setUserData] = useState<{ email: string } | null>(null);
     const [loading, setLoading] = useState(true);
+    const [logoutMessage, setLogoutMessage] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchAuth = async() => {
@@ -60,7 +61,7 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
         setUserData({ email });
     }
 
-    const logout = async() => {
+    const logout = async( message: string | null = null ) => {
         const response = await fetch("http://localhost:4000/users/logout", {
             method: "POST",
             headers: {
@@ -69,12 +70,17 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
             credentials: "include"
         });
 
+        setLogoutMessage(message);
         setUserData(null);
         
         if(!response.ok) {
             const data = await response.json();
             throw new Error(data.error || "Logout failed");
         }
+    }
+
+    const clearLogoutMessage = () => {
+        setLogoutMessage(null);
     }
 
     const register = async({ email, password }: RegisterProps) => {
@@ -95,7 +101,7 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
     }
 
     return (
-        <AuthContext.Provider value={{ userData, login, logout, register, loading }}>
+        <AuthContext.Provider value={{ userData, login, logout, register, loading, logoutMessage, clearLogoutMessage }}>
             { children }
         </AuthContext.Provider>
     )

@@ -7,14 +7,14 @@ interface ProtectedRouteProps {
 }
 
 export default function ProtectedRoutes({ children }: ProtectedRouteProps) {
-    const { userData, loading } = useAuth();
+    const { userData, loading, logoutMessage } = useAuth();
 
     if(loading) {
         return <CircularProgress />
     }
 
     if(!userData) {
-        return <Navigate to="/login" replace />
+        return <Navigate to="/login" state={{ message: logoutMessage }} replace />
     }
 
     return children

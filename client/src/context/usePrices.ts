@@ -52,5 +52,5 @@ export const usePrices = (tickers: string[]) => {
         loadPrices();
     }, [tickers])
 
-    return { prices, sessionExpired }; // TODO: wire up session-expired redirect
+    return { prices, sessionExpired };
 }
