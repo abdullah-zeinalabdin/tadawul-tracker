@@ -13,7 +13,13 @@ export default function PerformanceChartContainer({ chartData }: ChartDataProps)
     return (
         <Stack sx={ widgetsBaseStyles(theme) }>
             <Typography variant="h2">Performance Comparison</Typography>
+            {
+            chartData.myPerformance.length === 0 || chartData.tasiPerformance.length === 0 ?
+            <Stack sx={{ height: '400px', alignItems: 'center', justifyContent: 'center' }}>
+                <Typography variant="h2">No Data History Yet</Typography>
+            </Stack> :
             <PerformanceChart chartData={chartData}/>
+            }
         </Stack>
     )
 }

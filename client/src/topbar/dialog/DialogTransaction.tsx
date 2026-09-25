@@ -65,16 +65,23 @@ export default function DialogTransaction({ open, setOpen }: Props) {
             (selectedStock !== undefined && selectedStock.shares >= Number(transactionDetails.numberOfShares));
         
         if(hasEnoughShares) {
-            await addTransaction({
-                side: transactionDetails.side,
-                ticker: transactionDetails.ticker,
-                numberOfShares: Number(transactionDetails.numberOfShares),
-                PPS: Number(transactionDetails.PPS),
-                date: transactionDetails.date?.toISOString() ?? new Date().toISOString(),
-            });
-            setTransactionDetails(emptyForm);
-            setIsSubmitting(false);
-            setOpen(false);
+            try {
+                await addTransaction({
+                    side: transactionDetails.side,
+                    ticker: transactionDetails.ticker,
+                    numberOfShares: Number(transactionDetails.numberOfShares),
+                    PPS: Number(transactionDetails.PPS),
+                    date: transactionDetails.date?.toISOString() ?? new Date().toISOString(),
+                });
+                setTransactionDetails(emptyForm);
+                setIsSubmitting(false);
+                setOpen(false);
+            }
+            catch(error) {
+                console.error("Failed to add transaction", error);
+                setFormError("Failed to add transaction. Please try again.");
+                setIsSubmitting(false);
+            }
         }
         else {
             setFormError("You don't have the desired amount to sell");

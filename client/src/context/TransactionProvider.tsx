@@ -26,14 +26,17 @@ export const TransactionProvider = ({ children }: TransactionProviderProps) => {
             const data = await response.json();
 
             if(!response.ok) {
-                console.log("Adding Transaction Failed!", data.error);
-                return;
+                const error = new Error(`Error! Status: ${response.status}`) as Error & { status: number };
+                error.status = response.status;
+                console.error("Adding Transaction Failed!", data.error);
+                throw error;
             }
             
             setTransactions(prev => [...prev, data]);
         }
         catch(error) {
-            console.log("Adding Transaction Failed", error);
+            console.error("Adding Transaction Failed", error);
+            throw error;
         }
     }
 
@@ -50,14 +53,13 @@ export const TransactionProvider = ({ children }: TransactionProviderProps) => {
 
                 const data = await response.json()
                 if(!response.ok) {
-                    console.log("Data fetch failed", data.error);
-                    return;
+                    throw new Error(`Error! Status: ${response.status}`);
                 };
 
                 setTransactions(data);
             }
             catch(error) {
-                console.log("Fetch Failed", error);
+                console.error("Fetch Failed", error);
             }
         }
 
