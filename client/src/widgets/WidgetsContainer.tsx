@@ -1,4 +1,4 @@
-import { Grid, Stack } from "@mui/material";
+import { CircularProgress, Grid, Stack, Typography } from "@mui/material";
 import PortfolioValueCard from "./portfolioValueCard/PortfolioValueCard";
 import AssestsPerformanceTable from "./assetsPerformance/AssetsPerformanceTable";
 import DailyPerformance from "./dailyPerformance/DailyPerformance";
@@ -17,7 +17,7 @@ import { useAuth } from "../context/Authentication/useAuth";
 export default function WidgetsContainer() {
     const positions = usePositions();
     const tickers = useMemo(() => positions.map((p) => p.ticker), [positions]);
-    const { prices, sessionExpired } = usePrices(tickers);
+    const { prices, sessionExpired, isInitialLoad } = usePrices(tickers);
 
     const { logout } = useAuth();
 
@@ -70,10 +70,20 @@ export default function WidgetsContainer() {
 
     const allocationData = useMemo(() => deriveAllocation({ positions, prices }), [positions, prices]);
 
-    return(
+    if(isInitialLoad) {
+        return (
+            <Stack sx={{ height: '100vh', alignItems: "center", justifyContent: "center" }}>
+                <CircularProgress />
+                <Typography sx={{ mt: 2 }}>Getting your dashboard ready...</Typography>
+            </Stack>
+        );
+    }
+    return (
         <Grid container spacing={3}>
             <Grid size={4}>
-                <PortfolioValueCard portfolioValue={portfolioValue} allocationData={allocationData}/>
+                <Stack>
+                    <PortfolioValueCard portfolioValue={portfolioValue} allocationData={allocationData}/>
+                </Stack>
             </Grid>
             <Grid size={8}>
                 <Stack>

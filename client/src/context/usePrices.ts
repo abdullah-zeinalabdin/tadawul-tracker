@@ -12,6 +12,9 @@ export const usePrices = (tickers: string[]) => {
     const [prices, setPrices] = useState<Record<string, TickerData>>({});
     const [sessionExpired, setSessionExpired] = useState(false);
 
+    const [pricesLoading, setPricesLoading] = useState(true);
+    const isInitialLoad = pricesLoading && Object.keys(prices).length === 0;
+
     const fetchApp = async(link: string): Promise<TickerData> => {
         const response = await fetch(link, {credentials: "include"});
                 
@@ -27,30 +30,41 @@ export const usePrices = (tickers: string[]) => {
     }
     useEffect(() => {
         const loadPrices = async() => {
-            for(const t of tickers) {
-                try {
-                    const tickerData = await fetchApp(`http://localhost:4000/quote/${t}`);
-                    const specTickerData: TickerData = {
-                        name_en: tickerData.name_en,
-                        price: tickerData.price,
-                        change: tickerData.change,
-                        change_percent: tickerData.change_percent
-                    }
-                    setPrices(prev => ({...prev, [t]: specTickerData}));
+            setPricesLoading(true);
+            const promiseData = tickers.map((t) => fetchApp(`http://localhost:4000/quote/${t}`));
+            const tickerData = await Promise.allSettled(promiseData);
+
+            const newPrices: Record<string, TickerData> = {};
+            let expired = false;
+
+            tickerData.forEach((result, i) => {
+                if(result.status === "fulfilled") {
+                    newPrices[tickers[i]] = {
+                        name_en: result.value.name_en,
+                        price: result.value.price,
+                        change: result.value.change,
+                        change_percent: result.value.change_percent,
+                    };
                 }
-                catch(error) {
-                    if(error instanceof Error && "status" in error && error.status === 401) {
-                        console.error('Session expired, stopping price fetches');
-                        setSessionExpired(true);
-                        break;
+                if(result.status === "rejected") {
+                    const error = result.reason;
+
+                    if (error instanceof Error && "status" in error && error.status === 401) {
+                        expired = true;
+                    } 
+
+                    else {
+                        console.error('Fetch operation failed:', error);
                     }
-                    console.error('Fetch operation failed:', error);
                 }
-            }
+            })
+            setPrices(prev => ({ ...prev, ...newPrices }));
+            if (expired) setSessionExpired(true);
+            setPricesLoading(false);
         }
 
         loadPrices();
     }, [tickers])
 
-    return { prices, sessionExpired };
+    return { prices, sessionExpired, pricesLoading, isInitialLoad };
 }

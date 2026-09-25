@@ -16,7 +16,7 @@ export default function PortfolioValue( {portfolioValue}: Props ) {
             <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
                 <PercentPill value={percentageHolder} />
                 <Typography variant="caption" sx={numberStyles}>
-                    + <span style={{ fontSize: "1em" }}>{"\u20C1 "}</span>4855.23 This Month 
+                    + <span style={{ fontSize: "1em" }}>{"\u20C1 "}</span>4855.23 Last Day
                 </Typography>
             </Stack>
         </Stack>
