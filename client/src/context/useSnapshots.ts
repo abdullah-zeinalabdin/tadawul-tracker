@@ -7,12 +7,17 @@ export interface SnapshotData {
     tasiValue: number,
 }
 
+const apiUrl = import.meta.env.VITE_API_URL;
+if (!apiUrl) {
+    throw new Error("VITE_API_URL is not set");
+}
+
 export const useSnapshots = () => {
     const [snapshots, setSnapshots] = useState<SnapshotData[]>([]);
 
     const fetchApp = async() => {
         try {
-            const response = await fetch("http://localhost:4000/snapshots", { credentials: "include" });
+            const response = await fetch(`${apiUrl}/snapshots`, { credentials: "include" });
 
             if(!response.ok) {
                 throw new Error(`Error! Status: ${response.status}`);

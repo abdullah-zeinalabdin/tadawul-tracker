@@ -8,11 +8,12 @@ import { quoteRouter } from "./routes/quote.js";
 import { userRouter } from "./routes/user.js";
 import { snapshotRouter } from "./routes/snapshot.js";
 
+const port = process.env.PORT || 4000
 async function startServer() {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
-        app.listen(4000, () => {
-            console.log("Listening on Port 4000");
+        app.listen(port, () => {
+            console.log("Listening on Port", port);
         });
     }
 
@@ -25,7 +26,7 @@ async function startServer() {
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
     credentials: true,
 }));
 app.use(express.json());

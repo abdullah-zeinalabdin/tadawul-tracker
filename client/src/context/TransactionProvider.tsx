@@ -7,6 +7,11 @@ interface TransactionProviderProps {
     children: ReactNode
 }
 
+const apiUrl = import.meta.env.VITE_API_URL;
+if (!apiUrl) {
+    throw new Error("VITE_API_URL is not set");
+}
+
 export const TransactionProvider = ({ children }: TransactionProviderProps) => {
     const { userData } = useAuth();
 
@@ -14,7 +19,7 @@ export const TransactionProvider = ({ children }: TransactionProviderProps) => {
 
     const addTransaction = async(t: Transaction) => {
         try {
-            const response = await fetch("http://localhost:4000/transactions", {
+            const response = await fetch(`${apiUrl}/transactions`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -46,7 +51,7 @@ export const TransactionProvider = ({ children }: TransactionProviderProps) => {
         }
         const fetchTransactions = async() => {
             try {
-                const response = await fetch("http://localhost:4000/transactions", {
+                const response = await fetch(`${apiUrl}/transactions`, {
                 method: "GET",
                 credentials: "include"
                 });

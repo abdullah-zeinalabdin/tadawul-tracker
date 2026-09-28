@@ -8,6 +8,11 @@ export interface TickerData {
     change_percent: number,
 }
 
+const apiUrl = import.meta.env.VITE_API_URL;
+if (!apiUrl) {
+    throw new Error("VITE_API_URL is not set");
+}
+
 export const usePrices = (tickers: string[]) => {
     const [prices, setPrices] = useState<Record<string, TickerData>>({});
     const [sessionExpired, setSessionExpired] = useState(false);
@@ -31,7 +36,7 @@ export const usePrices = (tickers: string[]) => {
     useEffect(() => {
         const loadPrices = async() => {
             setPricesLoading(true);
-            const promiseData = tickers.map((t) => fetchApp(`http://localhost:4000/quote/${t}`));
+            const promiseData = tickers.map((t) => fetchApp(`${apiUrl}/quote/${t}`));
             const tickerData = await Promise.allSettled(promiseData);
 
             const newPrices: Record<string, TickerData> = {};

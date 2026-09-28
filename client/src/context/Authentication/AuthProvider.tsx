@@ -16,6 +16,11 @@ export interface RegisterProps {
     // TODO: MORE FIELDS LATER
 }
 
+const apiUrl = import.meta.env.VITE_API_URL;
+if (!apiUrl) {
+    throw new Error("VITE_API_URL is not set");
+}
+
 export const AuthProvider = ( { children }: AuthProviderProps) => {
     const [userData, setUserData] = useState<{ email: string } | null>(null);
     const [loading, setLoading] = useState(true);
@@ -24,7 +29,7 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
     useEffect(() => {
         const fetchAuth = async() => {
             try {
-                const response = await fetch("http://localhost:4000/users/me", {credentials: "include"});
+                const response = await fetch(`${apiUrl}/users/me`, {credentials: "include"});
 
                 if(!response.ok) {
                     throw new Error(`Error! Status: ${response.status}`);
@@ -45,7 +50,7 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
     }, [])
 
     const login = async({ email, password }: LoginProps) => {
-        const response = await fetch("http://localhost:4000/users/login", {
+        const response = await fetch(`${apiUrl}/users/login`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -62,7 +67,7 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
     }
 
     const logout = async( message: string | null = null ) => {
-        const response = await fetch("http://localhost:4000/users/logout", {
+        const response = await fetch(`${apiUrl}/users/logout`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -84,7 +89,7 @@ export const AuthProvider = ( { children }: AuthProviderProps) => {
     }
 
     const register = async({ email, password }: RegisterProps) => {
-        const response = await fetch("http://localhost:4000/users/register", {
+        const response = await fetch(`${apiUrl}/users/register`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
