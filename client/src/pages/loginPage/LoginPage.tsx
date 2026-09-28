@@ -1,7 +1,7 @@
 import { Stack, Typography, Button, useTheme, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/Authentication/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import PasswordField from "./PasswordField";
 import EmailField from "./EmailField";
 import { credsFormStyles, credsPageStyles } from "../../styles/sxStyles";
@@ -55,26 +55,32 @@ export default function LoginPage() {
     return (
         <Stack sx={credsPageStyles(theme)}>
             <Stack sx={credsFormStyles(theme)}>
-                    <Typography variant="h1">Login</Typography>
-                    <Stack sx={{mt: "40px"}} spacing={5}>
-                        <Stack spacing={2}>
-                            <Typography variant="h3">Email Address</Typography>
-                            <EmailField email={creds.email} onChange={handleChange}/>
-                        </Stack>
-                        <Stack spacing={2}>
-                            <Typography variant="h3">Password</Typography>
-                            <PasswordField password={creds.password} onChange={handleChange}/>
-                        </Stack>
-                        <ErrorAlert message={loginError}/>
-                        <Stack>
-                            <Button 
-                            variant="contained" 
-                            onClick={handleSubmit} 
-                            disabled={isSubmitting}
-                            startIcon={isSubmitting ? <CircularProgress size={16} color="inherit" /> : undefined}
-                            >Login</Button>
-                        </Stack>
+                <Typography variant="h1">Login</Typography>
+                <Stack sx={{mt: "40px"}} spacing={5}>
+                    <Stack spacing={2}>
+                        <Typography variant="h3">Email Address</Typography>
+                        <EmailField email={creds.email} onChange={handleChange}/>
                     </Stack>
+                    <Stack spacing={2}>
+                        <Typography variant="h3">Password</Typography>
+                        <PasswordField password={creds.password} onChange={handleChange}/>
+                    </Stack>
+                    <ErrorAlert message={loginError}/>
+                    <Stack>
+                        <Button 
+                        variant="contained" 
+                        onClick={handleSubmit} 
+                        disabled={isSubmitting}
+                        startIcon={isSubmitting ? <CircularProgress size={16} color="inherit" /> : undefined}
+                        >Login</Button>
+                    </Stack>
+                    <Stack sx={{ textAlign: "center" }}>
+                        <Typography variant="body2">
+                            Don't have an account?{" "}
+                            <Link to="/register" style={{ color: theme.palette.primary.main }}>Register</Link>
+                        </Typography>
+                    </Stack>
+                </Stack>
             </Stack>
         </Stack>
     )
