@@ -7,7 +7,8 @@ import FormControl from '@mui/material/FormControl'
 import LockOutlined from '@mui/icons-material/LockOutlined'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
-import type { CredsType } from './LoginPage'
+import type { CredsType } from '../../context/Authentication/AuthContext'
+
 
 interface Props {
     password: string,
