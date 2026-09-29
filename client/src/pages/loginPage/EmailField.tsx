@@ -4,7 +4,7 @@ import OutlinedInput from '@mui/material/OutlinedInput'
 import InputAdornment from '@mui/material/InputAdornment'
 import FormControl from '@mui/material/FormControl'
 import MailOutlined from '@mui/icons-material/MailOutlined'
-import type { CredsType } from './LoginPage'
+import type { CredsType } from '../../context/Authentication/AuthContext'
 
 interface Props {
     email: string,
