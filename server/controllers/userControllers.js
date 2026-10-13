@@ -46,6 +46,8 @@ export const registerUser = async(req, res) => {
     }
 };
 
+const isProd = process.env.NODE_ENV === "production";
+
 export const loginUser = async(req, res) => {
     const { email, password } = req.body;
 
@@ -72,8 +74,8 @@ export const loginUser = async(req, res) => {
             const token = tokenGen(user._id);
             res.cookie("token", token, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === "production",
-                sameSite: "none",
+                secure: isProd,
+                sameSite: isProd ? "none" : "lax",
                 maxAge: 7 * 24 * 60 * 60 * 1000,
             });
             res.status(200).json({message: "Login Successfully"});
@@ -91,8 +93,9 @@ export const loginUser = async(req, res) => {
 export const logoutUser = (_req, res) => {
     res.clearCookie("token", {
         path: "/",
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+    httpOnly: true,
+    secure: isProd,
+    sameSite: isProd ? "none" : "lax",
     });
 
     res.status(200).json({message: "user logged out successfully"})
