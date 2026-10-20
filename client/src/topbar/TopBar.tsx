@@ -1,4 +1,4 @@
-import { Add, Home, History } from "@mui/icons-material";
+import { Add, Home, History, QueryStats } from "@mui/icons-material";
 import { Button, Stack, Typography, useTheme } from "@mui/material";
 import SearchBar from "./SearchBar";
 import { topBarIconsContainerStyles, topBarStyles, topBarIconsStyles, topBarButtonStyles } from "../styles/sxStyles";
@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 const pageTitles: Record<string, { label: string; icon: React.ReactNode }> = {
     "/": { label: "Dashboard", icon: <Home sx={topBarIconsStyles} /> },
     "/history": { label: "Transaction History", icon: <History sx={topBarIconsStyles} /> },
+    "/stats": {label: "Statistics", icon: <QueryStats sx={topBarIconsStyles}/>},
 };
 
 export default function TopBar() {

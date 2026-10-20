@@ -13,6 +13,20 @@ if (!apiUrl) {
     throw new Error("VITE_API_URL is not set");
 }
 
+const fetchApp = async(link: string): Promise<TickerData> => {
+    const response = await fetch(link, {credentials: "include"});
+                
+    if(!response.ok) {
+        const error = new Error(`Error! Status: ${response.status}`) as Error & { status: number };
+        error.status = response.status;
+        throw error;
+    }
+
+    const data = await response.json();
+
+    return data;
+}
+
 export const usePrices = (tickers: string[]) => {
     const [prices, setPrices] = useState<Record<string, TickerData>>({});
     const [sessionExpired, setSessionExpired] = useState(false);
@@ -20,24 +34,20 @@ export const usePrices = (tickers: string[]) => {
     const [pricesLoading, setPricesLoading] = useState(true);
     const isInitialLoad = pricesLoading && Object.keys(prices).length === 0;
 
-    const fetchApp = async(link: string): Promise<TickerData> => {
-        const response = await fetch(link, {credentials: "include"});
-                
-        if(!response.ok) {
-            const error = new Error(`Error! Status: ${response.status}`) as Error & { status: number };
-            error.status = response.status;
-            throw error;
-        }
-
-        const data = await response.json();
-
-        return data;
-    }
     useEffect(() => {
+        let cancelled = false;
         const loadPrices = async() => {
+            setSessionExpired(false);
+            if (tickers.length === 0) {
+                setPrices({});
+                setPricesLoading(false);
+                return;
+            }
             setPricesLoading(true);
             const promiseData = tickers.map((t) => fetchApp(`${apiUrl}/quote/${t}`));
             const tickerData = await Promise.allSettled(promiseData);
+
+            if (cancelled) return;  
 
             const newPrices: Record<string, TickerData> = {};
             let expired = false;
@@ -69,6 +79,10 @@ export const usePrices = (tickers: string[]) => {
         }
 
         loadPrices();
+
+        return () => {
+            cancelled = true;
+        };
     }, [tickers])
 
     return { prices, sessionExpired, pricesLoading, isInitialLoad };

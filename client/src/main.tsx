@@ -6,6 +6,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from './theme/Theme.ts';
 import { TransactionProvider } from './context/TransactionProvider.tsx';
 import { AuthProvider } from './context/Authentication/AuthProvider.tsx';
+import { PricesProvider } from './context/PricesProvider.tsx';
 import { BrowserRouter } from "react-router-dom";
 /* Fonts Import */
 import '@fontsource/inter/400.css'
@@ -19,10 +20,12 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <AuthProvider>
         <TransactionProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-          </ThemeProvider>
+          <PricesProvider>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+            </ThemeProvider>
+          </PricesProvider>
         </TransactionProvider>
       </AuthProvider>
     </BrowserRouter>

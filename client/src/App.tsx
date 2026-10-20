@@ -8,6 +8,7 @@ import ProtectedRoutes from "./routes/ProtectedRoutes.tsx";
 import RegisterPage from "./pages/registerPage/RegisterPage.tsx";
 import WidgetsContainer from "./widgets/WidgetsContainer.tsx";
 import TransactionHistoryPage from "./pages/transactionHistory/TransactionHistoryPage.tsx";
+import StatsPage from "./pages/statsPage/StatsPage.tsx";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       >
         <Route index element={<WidgetsContainer />} />
         <Route path="history" element={<TransactionHistoryPage />} />
+        <Route path="stats" element={<StatsPage />} />
       </Route>
     </Routes>
   )

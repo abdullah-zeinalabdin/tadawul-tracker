@@ -2,11 +2,12 @@ import { Box, Stack, useTheme } from "@mui/material";
 import { Dashboard, DesktopMac, QueryStats, Wallet, History, Settings } from '@mui/icons-material'
 import { sideBarIconsContainerStyles, sideBarStyles } from "../styles/sxStyles";
 import { NavLink } from "react-router-dom";
+
 const sideBarItems = [
     {id: "dashboard", icon: <Dashboard />, path: "/"},
-    {id: "desktop", icon: <DesktopMac />, path: "/desktop"},
+    {id: "desktop", icon: <DesktopMac />, path: null},
     {id: "stats", icon: <QueryStats />, path: "/stats"},
-    {id: "wallet", icon: <Wallet />, path: "/wallet"},
+    {id: "wallet", icon: <Wallet />, path: null},
     {id: "history", icon: <History />, path: "/history"},
 ]
 

@@ -4,30 +4,18 @@ import AssestsPerformanceTable from "./assetsPerformance/AssetsPerformanceTable"
 import DailyPerformance from "./dailyPerformance/DailyPerformance";
 import PerformanceChartContainer from "./performanceChart/PerformanceChartContainer";
 import { usePositions } from "../context/usePositions";
-import { useEffect, useMemo } from "react";
-import { usePrices } from "../context/usePrices";
+import { useMemo } from "react";
 import type { AssetsPerformanceItem } from "./assetsPerformance/types";
 import type { DailyPerformanceItem } from "./dailyPerformance/types";
 import { useSnapshots } from "../context/useSnapshots";
 import { deriveChartData } from "./performanceChart/deriveChartData";
 import { deriveAllocation } from "./portfolioValueCard/deriveAllocation";
 import tickersData from "../data/tickers.json"
-import { useAuth } from "../context/Authentication/useAuth";
+import { usePricesContext } from "../context/usePricesContext";
 
 export default function WidgetsContainer() {
     const positions = usePositions();
-    const tickers = useMemo(() => positions.map((p) => p.ticker), [positions]);
-    const { prices, sessionExpired, isInitialLoad } = usePrices(tickers);
-
-    const { logout } = useAuth();
-
-    useEffect(() => {
-        if(sessionExpired) {
-            logout("Your session expired, please log in again.");
-            return;
-        }
-        // eslint-disable-next-line
-    }, [sessionExpired])
+    const { prices, isInitialLoad } = usePricesContext();
 
     const snapshots = useSnapshots();
     const chartData = useMemo(() => deriveChartData(snapshots), [snapshots]);
