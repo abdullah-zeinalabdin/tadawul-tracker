@@ -13,9 +13,9 @@ if (!apiUrl) {
     throw new Error("VITE_API_URL is not set");
 }
 
-const fetchApp = async(link: string): Promise<TickerData> => {
-    const response = await fetch(link, {credentials: "include"});
-                
+const fetchPrices = async(tickers: string[]): Promise<Record<string, TickerData>> => {
+    const response = await fetch(`${apiUrl}/quote?tickers=${tickers.join(",")}`, { credentials: "include" });
+
     if(!response.ok) {
         const error = new Error(`Error! Status: ${response.status}`) as Error & { status: number };
         error.status = response.status;
@@ -25,7 +25,7 @@ const fetchApp = async(link: string): Promise<TickerData> => {
     const data = await response.json();
 
     return data;
-}
+};
 
 export const usePrices = (tickers: string[]) => {
     const [prices, setPrices] = useState<Record<string, TickerData>>({});
@@ -44,38 +44,30 @@ export const usePrices = (tickers: string[]) => {
                 return;
             }
             setPricesLoading(true);
-            const promiseData = tickers.map((t) => fetchApp(`${apiUrl}/quote/${t}`));
-            const tickerData = await Promise.allSettled(promiseData);
+
+            let newPrices: Record<string, TickerData> = {};
+            let expired = false;
+
+            try {
+                newPrices = await fetchPrices(tickers);
+            }
+
+            catch(error) {
+                if (error instanceof Error && "status" in error && error.status === 401) {
+                    expired = true;
+                }
+                else {
+                    console.error('Fetch operation failed:', error);
+                }
+            }
 
             if (cancelled) return;  
 
-            const newPrices: Record<string, TickerData> = {};
-            let expired = false;
-
-            tickerData.forEach((result, i) => {
-                if(result.status === "fulfilled") {
-                    newPrices[tickers[i]] = {
-                        name_en: result.value.name_en,
-                        price: result.value.price,
-                        change: result.value.change,
-                        change_percent: result.value.change_percent,
-                    };
-                }
-                if(result.status === "rejected") {
-                    const error = result.reason;
-
-                    if (error instanceof Error && "status" in error && error.status === 401) {
-                        expired = true;
-                    } 
-
-                    else {
-                        console.error('Fetch operation failed:', error);
-                    }
-                }
-            })
-            setPrices(prev => ({ ...prev, ...newPrices }));
             if (expired) setSessionExpired(true);
             setPricesLoading(false);
+            if (typeof newPrices === 'object' && newPrices !== null) {
+                setPrices(prev => ({ ...prev, ...newPrices }));
+            }
         }
 
         loadPrices();
