@@ -31,6 +31,11 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
+
+app.get("/", (req, res) => {
+    res.status(200).send("ok");
+});
+
 app.use("/transactions", transactionRouter);
 app.use("/quote", quoteRouter);
 app.use("/users", userRouter);
