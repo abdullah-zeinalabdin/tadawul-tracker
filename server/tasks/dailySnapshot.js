@@ -1,7 +1,7 @@
 import cron from "node-cron";
 import { User } from "../models/UserModel.js";
 import { Transaction } from "../models/TransactionModel.js";
-import { fetchMarketSummary, fetchQuote } from "../services/dataProvider.js";
+import { fetchMarketSummary, fetchQuotes } from "../services/dataProvider.js";
 import { Snapshot } from "../models/SnapshotModel.js";
 
 export const runDailySnapshot = async() => {
@@ -12,7 +12,7 @@ export const runDailySnapshot = async() => {
         const tasiValue = marketData.index_value;
         
         const date = new Date();
-        date.setHours(0, 0, 0, 0);
+        date.setUTCHours(0, 0, 0, 0);
 
         for(const user of users) {
             const transactions = await Transaction.find({ userId: user._id });
@@ -43,26 +43,40 @@ export const runDailySnapshot = async() => {
                 };
             });
 
+            const positionsTickers = positions.map((p) => p.ticker);
+
             let unrealizedPL = 0;
             let totalCostBasis = 0;
-            for (const position of positions) {
-                try {
-                    const priceData = await fetchQuote(position.ticker);
-                    unrealizedPL += (position.shares * (priceData?.price ?? position.avgCost)) - (position.shares * position.avgCost);
-                    totalCostBasis += (position.shares * position.avgCost);
+
+            try {
+                if(positionsTickers.length === 0) {
+                    continue;
                 }
-                catch(error) {
-                    console.error(`Failed to fetch ${position.ticker} for user ${user._id}`, error);
-                    unrealizedPL += 0;
-                    totalCostBasis += (position.shares * position.avgCost);
-                }
+
+                const priceData = await fetchQuotes(positionsTickers);
+
+                positions.forEach((p) => {
+                    const price = priceData[p.ticker]?.price;
+                    if (price === undefined) {
+                        throw new Error(`No price for ${p.ticker}`);
+                    }
+                    unrealizedPL += (price * p.shares) - (p.avgCost * p.shares);
+                    totalCostBasis += (p.avgCost * p.shares);
+                });
+            }
+            catch(error) {
+                console.error(`Skipping snapshot for user ${user._id}`, error);
+                continue;
             }
 
             try {
                 await Snapshot.findOneAndUpdate(
                     { userId: user._id, date },
-                    { userId: user._id, date, unrealizedPL, totalCostBasis, tasiValue },
-                    { upsert: true, new: true },
+                    { userId: user._id, date, 
+                    unrealizedPL: Number(unrealizedPL.toFixed(2)), 
+                    totalCostBasis: Number(totalCostBasis.toFixed(2)), 
+                    tasiValue },
+                    { upsert: true },
                 )
             }
             catch(error) {
