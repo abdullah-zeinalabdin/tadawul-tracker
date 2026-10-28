@@ -7,6 +7,7 @@ import { transactionRouter } from "./routes/transaction.js";
 import { quoteRouter } from "./routes/quote.js";
 import { userRouter } from "./routes/user.js";
 import { snapshotRouter } from "./routes/snapshot.js";
+import { internalRouter } from "./routes/internal.js";
 
 const port = process.env.PORT || 4000
 async function startServer() {
@@ -40,4 +41,5 @@ app.use("/transactions", transactionRouter);
 app.use("/quote", quoteRouter);
 app.use("/users", userRouter);
 app.use("/snapshots", snapshotRouter);
+app.use("/internal", internalRouter);
 startServer();
