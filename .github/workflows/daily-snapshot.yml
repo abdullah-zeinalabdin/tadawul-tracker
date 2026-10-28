@@ -1,0 +1,24 @@
+name: Daily Snapshot
+
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+
+jobs:
+  trigger-snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call snapshot endpoint with retries
+        run: |
+          for i in 1 2 3 4 5; do
+            response=$(curl -s -o /dev/null -w "%{http_code}" -X POST https://tadawul-server.onrender.com/internal/run-snapshot -H "x-snapshot-key: ${{ secrets.SNAPSHOT_SECRET }}")
+            if [ "$response" = "200" ]; then
+              echo "Success on attempt $i"
+              exit 0
+            fi
+            echo "Attempt $i failed with status $response, retrying in 30s"
+            sleep 30
+          done
+          echo "All attempts failed"
+          exit 1
