@@ -181,4 +181,14 @@ export const credsFormStyles = (theme: Theme) => ({
     padding: "30px",
     borderRadius: `${theme.shape.borderRadius}px`,
 });
+
+export const statsPageCardsStyles = (theme: Theme) => ({
+    padding: "25px",
+    borderRadius: "8px",
+    height: "100%",
+    gap: "15px",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.palette.background.default,
+})
 /* === Pages === */

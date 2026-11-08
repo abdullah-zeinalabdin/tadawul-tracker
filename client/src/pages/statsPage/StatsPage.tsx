@@ -1,9 +1,10 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
+import StatsPageContainer from "./StatsPageContainer";
 
 export default function StatsPage() {
     return (
         <Stack>
-            <Typography>Stats Page</Typography>
+            <StatsPageContainer />
         </Stack>
     )
 }
