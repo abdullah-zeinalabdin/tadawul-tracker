@@ -1,18 +1,25 @@
 import { Grid, Stack, Typography, useTheme } from "@mui/material";
 import { widgetsBaseStyles } from "../../../styles/sxStyles";
 import MainStatsCard from "./MainStatsCard.tsx";
-
-
-const stats = [
-    { label: "Total Value", value: "48,230.50" },
-    { label: "Total Cost", value: "45,100.00" },
-    { label: "Unrealized P/L", value: "+3,130.50 (+6.9%)" },
-    { label: "Holdings", value: "12" },
-    { label: "Today's Change", value: "+215.30 (+0.45%)" },
-];
+import { usePositions } from "../../../context/usePositions.ts";
+import { usePricesContext } from "../../../context/usePricesContext.ts";
+import { deriveMainStats } from "../../../context/deriveMainStats.ts";
+import { useMemo } from "react";
 
 export default function MainStatsCardContainer() {
+    const positions = usePositions();
+    const { prices } = usePricesContext();
     const theme = useTheme();
+
+    const summary = useMemo(() => deriveMainStats(positions, prices), [positions, prices]);
+
+    const stats = [
+        { label: "Total Value", value: summary.totalValue.toFixed(2) },
+        { label: "Total Cost", value: summary.totalCost.toFixed(2) },
+        { label: "Unrealized P/L", value: `${summary.unrealizedPL >= 0 ? "+" : ""}${summary.unrealizedPL.toFixed(2)} (${summary.unrealizedPLPercent.toFixed(1)}%)` },
+        { label: "Holdings", value: String(summary.holdingsCount) },
+        { label: "Today's Change", value: `${summary.dayChange >= 0 ? "+" : ""}${summary.dayChange.toFixed(2)} (${summary.dayChangePercent.toFixed(1)}%)` },
+    ];
 
     return (
         <Stack sx={widgetsBaseStyles(theme)} spacing={3}>

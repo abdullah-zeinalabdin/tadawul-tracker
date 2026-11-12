@@ -12,10 +12,10 @@ export default function MainStatsCard({ label, value }: Props) {
         <>
             <Stack sx={statsPageCardsStyles(theme)}>
                 <Typography sx={numberStyles} variant="h2">
-                    <span style={{ fontSize: "1.3em" }}>{"\u20C1 "}</span> 
+                    <span style={{ fontSize: "1.3em" }}>{label === "Holdings" ? "" : "\u20C1 "}</span> 
                     {value}
                 </Typography>
-                <Typography variant="body2">{label}</Typography>
+                <Typography variant="h3">{label}</Typography>
             </Stack>
         </>
     )

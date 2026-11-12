@@ -190,5 +190,11 @@ export const statsPageCardsStyles = (theme: Theme) => ({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: theme.palette.background.default,
+    boxShadow: theme.shadows[3],
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+    "&:hover": {
+        transform: "translateY(-4px)",
+        boxShadow: theme.shadows[8],
+    },
 })
 /* === Pages === */
