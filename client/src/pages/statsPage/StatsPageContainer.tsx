@@ -1,5 +1,6 @@
 import { Grid, Stack } from "@mui/material";
 import MainStatsCardContainer from "./mainStatsCard/MainStatsCardContainer";
+import SectorAllocationContainer from "./sectorAllocation/SectorAllocationContainer";
 
 export default function StatsPageContainer() {
     return (
@@ -8,6 +9,9 @@ export default function StatsPageContainer() {
                 <Stack>
                     <MainStatsCardContainer />
                 </Stack>
+            </Grid>
+            <Grid size={6}>
+                <SectorAllocationContainer />
             </Grid>
         </Grid>
     )
