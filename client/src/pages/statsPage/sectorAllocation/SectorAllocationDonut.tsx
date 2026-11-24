@@ -1,12 +1,15 @@
-import { Stack } from "@mui/material";
+import { Stack, Typography, Box } from "@mui/material";
 import ReactECharts from 'echarts-for-react';
-import type { AllocationItem } from "../../../widgets/portfolioValueCard/types";
+import type { SectorBreakdown } from "./deriveTopSectorBreakdown";
+import { numberStyles } from "../../../styles/sxStyles";
 
 interface Props {
-    allocationData: AllocationItem[];
+    sector: SectorBreakdown;
 }
 
-export default function SectorAllocationDonut({ allocationData }: Props) {
+const colorArr = ["#EF9F27", "#9F77DD", "#22C55E", "#378ADD", "#6B7280"];
+
+export default function SectorAllocationDonut({ sector }: Props) {
     const option = {
         tooltip: {
             trigger: 'item',
@@ -15,38 +18,62 @@ export default function SectorAllocationDonut({ allocationData }: Props) {
             textStyle: { color: '#e2e8f0' },
             valueFormatter: (value: number) => `${value.toFixed(1)}%`,
         },
-        legend: {
-            orient: 'vertical',
-            right: 10,
-            top: 'center',
-            textStyle: { color: '#e2e8f0' },
-        },
         series: [
             {
-                name: 'Sector Allocation',
                 type: 'pie',
                 radius: ['45%', '70%'],
-                center: ['40%', '50%'],
                 padAngle: 3,
-                itemStyle: {
-                    borderRadius: 4,
-                },
-                data: allocationData.map((item) => ({
-                    name: item.label,
-                    value: item.percent,
-                    itemStyle: { color: item.color },
+                itemStyle: { borderRadius: 4 },
+                data: sector.holdings.map((h, i) => ({
+                    name: h.name,
+                    value: h.percent,
+                    itemStyle: { color: colorArr[i % colorArr.length] },
                 })),
                 label: { show: false },
-                emphasis: {
-                    label: { show: true, fontSize: 14, fontWeight: 'bold' },
-                },
+                emphasis: { label: { show: true, fontSize: 12, fontWeight: 'bold' } },
             },
         ],
     };
 
     return (
-        <Stack>
-            <ReactECharts option={option} style={{ height: '300px' }} />
+        <Stack spacing={3} sx={{alignItems: "center"}}>
+            <Typography variant="body1">
+                {sector.sector}
+            </Typography>
+
+            <ReactECharts option={option} style={{ height: '260px', width: '100%' }} />
+
+            <Typography variant="h2" sx={numberStyles}>
+                {"\u20C1 "} {sector.totalValue.toFixed(2)}
+            </Typography>
+
+            <Stack spacing={0.75} sx={{ width: "100%" }}>
+                {sector.holdings.map((h, i) => (
+                    <Stack key={h.ticker} direction="row" sx={{alignItems: "center"}} spacing={1}>
+                        <Box sx={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: colorArr[i % colorArr.length], flexShrink: 0 }} />
+                        <Typography variant="caption" sx={{ flex: 1 }} noWrap>
+                            {h.name}
+                        </Typography>
+                        <Typography variant="caption" sx={numberStyles}>
+                            {"\u20C1 "} {h.value.toFixed(2)}
+                        </Typography>
+                        <Typography variant="caption">
+                            | 
+                        </Typography>
+                        <Typography
+                            variant="caption"
+                            sx={{
+                                ...numberStyles,
+                                display: "inline-block",
+                                minWidth: 45,
+                                textAlign: "right",
+                            }}
+                        >
+                            {h.percent.toFixed(1)}%
+                        </Typography>
+                    </Stack>
+                ))}
+            </Stack>
         </Stack>
     );
 }

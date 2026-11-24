@@ -30,7 +30,7 @@ export const deriveTopSectorBreakdown = (positions: Position[], prices: Record<s
             marketValue,
             sector,
             ticker: p.ticker,
-            name: priceData?.name_en ?? p.ticker,
+            name: tickerDetails?.short_name ?? priceData?.name_en ?? p.ticker,
         }
     });
     // Add on every same sector's value 
@@ -55,8 +55,8 @@ export const deriveTopSectorBreakdown = (positions: Position[], prices: Record<s
         const filteredPositions = allocationPositions.filter((p) => p.sector === topSector);
         const sectorTotal = allocationSectorValues[topSector].value;
 
-        const holdings: TickerBreakdown[] = filteredPositions.map((p) => {
-            // Shape it into a holding
+        const holdings: TickerBreakdown[] = filteredPositions
+        .map((p) => {
             const holding = {
                 ticker: p.ticker,
                 name: p.name,
@@ -64,7 +64,8 @@ export const deriveTopSectorBreakdown = (positions: Position[], prices: Record<s
                 percent: (p.marketValue / sectorTotal) * 100,
             }
             return holding
-        });
+        })
+        .sort((a, b) => b.percent - a.percent);
 
         return {
             sector: topSector,

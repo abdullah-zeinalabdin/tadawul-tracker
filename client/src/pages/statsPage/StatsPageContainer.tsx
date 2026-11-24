@@ -10,7 +10,7 @@ export default function StatsPageContainer() {
                     <MainStatsCardContainer />
                 </Stack>
             </Grid>
-            <Grid size={6}>
+            <Grid size={12}>
                 <SectorAllocationContainer />
             </Grid>
         </Grid>

@@ -8,6 +8,7 @@
     {
         "ticker": "2222",
         "name": "SAUDI ARAMCO",
+        "short_name": "Aramco",
         "shariaCompliant": true,
         "sector": "Energy",
         "domain": "aramco.com"
@@ -171,6 +172,7 @@
     {
         "ticker": "2223",
         "name": "LUBEREF",
+        "short_name": "Luberef",
         "shariaCompliant": true,
         "sector": "Materials"
     },
@@ -273,6 +275,7 @@
     {
         "ticker": "3030",
         "name": "SAUDI CEMENT",
+        "short_name": "Saudi Cement",
         "shariaCompliant": true,
         "sector": "Materials",
         "domain": "saudicement.com.sa"
@@ -483,7 +486,8 @@
     },
     {
         "ticker": "4031",
-        "name": "SGS",
+        "name": "Saudi GROUND SERVICES",
+        "short_name": "SGS",
         "shariaCompliant": true,
         "sector": "Transportation",
         "domain": "saudiags.com"
@@ -521,6 +525,7 @@
     {
         "ticker": "4264",
         "name": "FLYNAS",
+        "short_name": "Flynas",
         "shariaCompliant": true,
         "sector": "Transportation",
         "domain": "flynas.com"
@@ -774,6 +779,7 @@
     {
         "ticker": "4001",
         "name": "A.OTHAIM MARKET",
+        "short_name": "Al Othaim",
         "shariaCompliant": true,
         "sector": "Consumer Staples Distribution & Retail",
         "domain": "othaimmarkets.com"
@@ -817,6 +823,7 @@
     {
         "ticker": "4164",
         "name": "NAHDI",
+        "short_name": "Nahdi",
         "shariaCompliant": true,
         "sector": "Consumer Staples Distribution & Retail",
         "domain": "nahdionline.com"
@@ -848,6 +855,7 @@
     {
         "ticker": "2280",
         "name": "ALMARAI",
+        "short_name": "Almarai",
         "shariaCompliant": true,
         "sector": "Food & Beverages",
         "domain": "almarai.com"
@@ -999,6 +1007,7 @@
     {
         "ticker": "4013",
         "name": "SULAIMAN ALHABIB",
+        "short_name": "Al-Habib Medical",
         "shariaCompliant": true,
         "sector": "Health Care Equipment & Svc",
         "domain": "drsulaimanalhabib.ae"
@@ -1048,6 +1057,7 @@
     {
         "ticker": "4016",
         "name": "AVALON PHARMA",
+        "short_name": "Avalon Pharma",
         "shariaCompliant": true,
         "sector": "Pharma, Biotech & Life Science",
         "domain": "avalonpharmaceutical.com"
@@ -1103,6 +1113,7 @@
     {
         "ticker": "1150",
         "name": "ALINMA",
+        "short_name": "Alinma",
         "shariaCompliant": null,
         "sector": "Banks",
         "domain": "alinma.com"
@@ -1344,6 +1355,7 @@
     {
         "ticker": "7202",
         "name": "SOLUTIONS",
+        "short_name": "Solutions",
         "shariaCompliant": true,
         "sector": "Software & Services",
         "domain": "solutions.com.sa"
@@ -1375,6 +1387,7 @@
     {
         "ticker": "7010",
         "name": "STC",
+        "short_name": "STC",
         "shariaCompliant": true,
         "sector": "Telecommunication Services",
         "domain": "stc.com.sa"
@@ -1460,6 +1473,7 @@
     {
         "ticker": "4334",
         "name": "AL MAATHER REIT",
+        "short_name": "Al Maather",
         "shariaCompliant": false,
         "sector": "REITs"
     },
@@ -1508,6 +1522,7 @@
     {
         "ticker": "4344",
         "name": "SEDCO CAPITAL REIT",
+        "short_name": "Sedco Capital",
         "shariaCompliant": true,
         "sector": "REITs",
         "domain": "sedcocapital.com"
@@ -1515,6 +1530,7 @@
     {
         "ticker": "4345",
         "name": "ALINMA RETAIL REIT",
+        "short_name": "Alinma Retail",
         "shariaCompliant": true,
         "sector": "REITs",
         "domain": "alinma.com"
@@ -1528,6 +1544,7 @@
     {
         "ticker": "4347",
         "name": "BONYAN REIT",
+        "short_name": "Bonyan",
         "shariaCompliant": true,
         "sector": "REITs",
         "domain": "saudibonyan.com.sa"
@@ -1541,6 +1558,7 @@
     {
         "ticker": "4349",
         "name": "ALINMA HOSPITALITY REIT",
+        "short_name": "Alinma Hospitality",
         "shariaCompliant": true,
         "sector": "REITs",
         "domain": "alinma.com"
