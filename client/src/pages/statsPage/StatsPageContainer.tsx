@@ -1,7 +1,7 @@
 import { Grid, Stack } from "@mui/material";
 import MainStatsCardContainer from "./mainStatsCard/MainStatsCardContainer";
 import SectorAllocationContainer from "./sectorAllocation/SectorAllocationContainer";
-
+import PerformanceAttributionContainer from "./performanceAttribution/PerformanceAttributionContainer";
 export default function StatsPageContainer() {
     return (
         <Grid container spacing={3}>
@@ -11,7 +11,14 @@ export default function StatsPageContainer() {
                 </Stack>
             </Grid>
             <Grid size={12}>
-                <SectorAllocationContainer />
+                <Stack>
+                    <SectorAllocationContainer />
+                </Stack>
+            </Grid>
+            <Grid size={12}>
+                <Stack>
+                    <PerformanceAttributionContainer />
+                </Stack>
             </Grid>
         </Grid>
     )
